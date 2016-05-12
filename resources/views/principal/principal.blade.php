@@ -7,9 +7,8 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <link rel="icon" href="#">
-        <title>i-Educar</title>
+        <title>Projeto Portabilis - Laravel</title>
         <link href="../vendor/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="../vendor/submenu/dist/css/bootstrap-submenu.min.css">
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
         <link href="../custom/ie10-viewport-bug-workaround.css" rel="stylesheet">
         <link href="../custom/dashboard.css" rel="stylesheet">
@@ -33,11 +32,20 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">Projeto Portabilis</a>
+                <a class="navbar-brand" href="/">i-Educar</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Sair</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Relatórios <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Relatório geral de alunos</a></li>
+                                <li><a href="#">Relatório geral de cursos</a></li>
+                                <li><a href="#">Relatório geral de matriculas</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Relatório alunos por curso</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -46,18 +54,36 @@
             <div class="row">
                 <div class="col-sm-3 col-md-2 sidebar">
                     <ul class="nav nav-sidebar">
-
-                        <li><a role="button" data-toggle="collapse" href="#agenda" aria-expanded="false" aria-controls="collapseExample">Agenda</a></li>
-                        <div class="collapse" id="agenda">
+                        <li><a role="button" data-toggle="collapse" href="#admin" aria-expanded="false" aria-controls="collapseExample">Cadastros</a></li>
+                        <div class="collapse" id="admin">
                             <div class="well">
                                 <ul>
-                                    <li><a href="#">Agenda admin</a></li>
-                                    <li><a href="#">Agenda pessoal</a></li>
-                                    <li><a href="#">Agendas</a></li>
+                                    <li><a href="/aluno_cad">Alunos</a></li>
+                                    <li><a href="#">Cursos</a></li>
+                                    <li><a href="#">Matriculas</a></li>
                                 </ul>
                             </div>
                         </div>
 
+                        <li><a role="button" data-toggle="collapse" href="#agenda" aria-expanded="false" aria-controls="collapseExample">Listagens</a></li>
+                        <div class="collapse" id="agenda">
+                            <div class="well">
+                                <ul>
+                                    <li><a href="#">Alunos</a></li>
+                                    <li><a href="#">Cursos</a></li>
+                                    <li><a href="#">Matriculas</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <li><a role="button" data-toggle="collapse" href="#endereco" aria-expanded="false" aria-controls="collapseExample">Pagamento</a></li>
+                        <div class="collapse" id="endereco">
+                            <div class="well">
+                                <ul>
+                                    <li><a href="#">Matriculas</a></li>
+                                </ul>
+                            </div>
+                        </div>                        
                     </ul>
                 </div>
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">

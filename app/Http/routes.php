@@ -13,6 +13,8 @@
 
 Route::get('/', 'ProjetoController@main');
 
+Route::get('/aluno_cad', 'AlunoController@aluno_cad');
+
 //Route::get('home', 'HomeController@index');
 
 Route::controllers([
