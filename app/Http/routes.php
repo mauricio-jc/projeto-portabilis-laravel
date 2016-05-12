@@ -11,13 +11,13 @@
 |
 */
 
-Route::get('/', 'ProjetoController@main');
+Route::get('/', 'LoginController@login');
+
+Route::get('/home', 'ProjetoController@main');
 
 Route::get('/aluno_cad', 'AlunoController@aluno_cad');
 
-//Route::get('home', 'HomeController@index');
-
-Route::controllers([
+/*Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
-]);
+]);*/
