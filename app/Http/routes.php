@@ -11,9 +11,13 @@
 |
 */
 
+Route::get('/logout', 'LoginController@logout');
+
 Route::get('/', 'LoginController@login');
 
 Route::get('/home', 'ProjetoController@main');
+
+Route::post('/logar', 'LoginController@logar');
 
 Route::get('/aluno_cad', 'AlunoController@aluno_cad');
 

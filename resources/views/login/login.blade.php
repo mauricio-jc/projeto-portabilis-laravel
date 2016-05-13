@@ -23,12 +23,22 @@
     </head>
     <body>
         <div class="container">
-            <form class="form-signin">
+            @if((old('msg_error')))
+                {{$msg_error}}
+            @endif
+            
+            @if(!empty($error))
+                 <div class="alert alert-danger col-md-4 col-md-offset-4">
+                    {{$error}}
+                </div>
+            @endif
+            <form action="/logar" method="post" class="form-signin">
+                <input type="hidden" name="_token"  value="{{csrf_token()}}">
                 <h2 class="form-signin-heading">Acesso ao sistema</h2>
                 <label for="inputEmail" class="sr-only">E-mail</label>
-                <input type="email" id="inputEmail" class="form-control" placeholder="Insira seu e-mail" required autofocus>
+                <input type="email" name="email" class="form-control" placeholder="Insira seu e-mail" required autofocus>
                 <label for="inputPassword" class="sr-only">Senha</label>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Insira sua senha" required>
+                <input type="password" name="password" class="form-control" placeholder="Insira sua senha" required>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
             </form>
         </div>

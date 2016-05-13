@@ -8,7 +8,7 @@
 	<form action="#" method="post">
 		<div class="form-group col-md-12">
 			<label>Nome do aluno *</label>
-			<input type="text" class="form-control input-text" name="nome">
+			<input type="text" class="form-control input-text" name="nome" autofocus>
 		</div>
 		<div class="form-group col-md-12">
 			<label>CPF *</label>
