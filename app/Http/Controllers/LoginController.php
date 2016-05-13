@@ -26,6 +26,7 @@ class LoginController extends Controller {
 			return redirect('/home');
 		}
 		else{
+			session_destroy();	
 			return redirect('/')->withInput();
 		}
 	}

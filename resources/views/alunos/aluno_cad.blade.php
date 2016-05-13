@@ -15,7 +15,7 @@
 		</div>
 	@endif
 
-	@if(old('nome'))
+	@if(old('nome') && count($errors) == 0)
 		<div class="alert alert-info">
 			Aluno {{old('nome')}} cadastrado!
 		</div>

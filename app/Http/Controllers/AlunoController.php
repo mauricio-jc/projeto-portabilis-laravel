@@ -10,7 +10,7 @@ use App\AlunoModel;
 class AlunoController extends Controller {
 
 	public function aluno_cad(){
-		return view('cadastros.aluno_cad');
+		return view('alunos.aluno_cad');
 	}
 
 	public function save(AlunoRequest $request){
@@ -22,5 +22,12 @@ class AlunoController extends Controller {
 		$alunos->save();
 
 		return redirect('/aluno_cad')->withInput();
+	}
+
+	public function aluno_lst(){
+		$data = new DateController();
+		$alunos = AlunoModel::orderBy('nome')->get();
+		$alunos = AlunoModel::paginate(10);
+		return view('alunos.aluno_lst')->with('alunos', $alunos);
 	}
 }
