@@ -26,13 +26,14 @@ class LoginController extends Controller {
 			return redirect('/home');
 		}
 		else{
-			$msg_error = "Credenciais não válidas!";
-			return view('login.login')->with('error', $msg_error);
+			return redirect('/')->withInput();
 		}
 	}
 
 	public function logout(){
+		session_destroy();
 		Auth::logout();
-		return redirect('/');
+		$msg_logout = "Você se desconectou do sistema!";
+		return view('login.login')->with('msg_logout', $msg_logout);
 	}
 }

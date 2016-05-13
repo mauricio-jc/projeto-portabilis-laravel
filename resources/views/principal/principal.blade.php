@@ -85,7 +85,7 @@
                         <div class="collapse" id="agenda">
                             <div class="well">
                                 <ul>
-                                    <li><a href="#">Alunos</a></li>
+                                    <li><a href="/aluno_lst">Alunos</a></li>
                                     <li><a href="#">Cursos</a></li>
                                     <li><a href="#">Matriculas</a></li>
                                 </ul>

@@ -21,6 +21,8 @@ Route::post('/logar', 'LoginController@logar');
 
 Route::get('/aluno_cad', 'AlunoController@aluno_cad');
 
+Route::post('/aluno_cad/save', 'AlunoController@save');
+
 /*Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',

@@ -2,8 +2,10 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
-use Illuminate\Http\Request;
+use Request;
+use App\Http\Requests\AlunoRequest;
+use App\Http\Controllers\DateController;
+use App\AlunoModel;
 
 class AlunoController extends Controller {
 
@@ -11,4 +13,14 @@ class AlunoController extends Controller {
 		return view('cadastros.aluno_cad');
 	}
 
+	public function save(AlunoRequest $request){
+		$data = new DateController();
+		$paramsAluno = $request->all();
+		//Converte a data para o formato do banco
+		$paramsAluno['data_nascimento'] = $data->convert_date_db($paramsAluno['data_nascimento']);
+		$alunos = new AlunoModel($paramsAluno);
+		$alunos->save();
+
+		return redirect('/aluno_cad')->withInput();
+	}
 }

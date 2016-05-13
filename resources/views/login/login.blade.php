@@ -23,15 +23,18 @@
     </head>
     <body>
         <div class="container">
-            @if((old('msg_error')))
-                {{$msg_error}}
-            @endif
-            
-            @if(!empty($error))
+            @if(old('email'))
                  <div class="alert alert-danger col-md-4 col-md-offset-4">
-                    {{$error}}
+                    Credenciais não válidas!
                 </div>
             @endif
+            
+            @if(!empty($msg_logout))
+                <div class="alert alert-danger col-md-4 col-md-offset-4">
+                    {{$msg_logout}}
+                </div>
+            @endif
+
             <form action="/logar" method="post" class="form-signin">
                 <input type="hidden" name="_token"  value="{{csrf_token()}}">
                 <h2 class="form-signin-heading">Acesso ao sistema</h2>
