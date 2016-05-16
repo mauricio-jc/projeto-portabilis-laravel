@@ -30,7 +30,7 @@
             @endif
             
             @if(!empty($msg_logout))
-                <div class="alert alert-danger col-md-4 col-md-offset-4">
+                <div class="alert alert-info col-md-4 col-md-offset-4">
                     {{$msg_logout}}
                 </div>
             @endif
@@ -42,6 +42,7 @@
                 <input type="email" name="email" class="form-control" placeholder="Insira seu e-mail" required autofocus>
                 <label for="inputPassword" class="sr-only">Senha</label>
                 <input type="password" name="password" class="form-control" placeholder="Insira sua senha" required>
+                <a href="#">Esqueceu sua senha?</a>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
             </form>
         </div>

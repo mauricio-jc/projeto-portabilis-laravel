@@ -59,6 +59,7 @@
                                 {{ Auth::user()->name }}                                 
                             <span class="caret"></span></a>
                             <ul class="dropdown-menu">
+                                <li><a href="/senha_alt">Alterar senha</a></li>
                                 <li><a href="/logout">Sair</a></li>
                             </ul>
                         </li>
@@ -88,6 +89,7 @@
                                     <li><a href="/aluno_lst">Alunos</a></li>
                                     <li><a href="#">Cursos</a></li>
                                     <li><a href="#">Matriculas</a></li>
+                                    <li><a href="#">Usuários</a></li>
                                 </ul>
                             </div>
                         </div>

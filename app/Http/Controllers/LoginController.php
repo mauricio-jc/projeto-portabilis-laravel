@@ -23,6 +23,7 @@ class LoginController extends Controller {
 		if(Auth::attempt($parametrosLogin)){
 			Auth::user()->name;
 			$_SESSION['admin'] = Auth::user()->admin;
+			$_SESSION['id'] = Auth::user()->id;
 			return redirect('/home');
 		}
 		else{

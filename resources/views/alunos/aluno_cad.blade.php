@@ -5,6 +5,12 @@
 	<h2>Cadastrar novo aluno</h2>
 	<hr>
 
+	<ol class="breadcrumb">
+  		<li class="active">Início</li>
+  		<li class="active">Cadastro</li>
+  		<li class="active">Cadastro de alunos</li>
+	</ol>
+
 	@if(count($errors) > 0)
 		<div class="alert alert-danger">
 			@foreach($errors->all() as $error)
