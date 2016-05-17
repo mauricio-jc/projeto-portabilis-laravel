@@ -3,6 +3,7 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UsuarioRequest;
+use App\Http\Requests\SenhaRequest;
 use Request;
 use Hash;
 use Auth;
@@ -15,6 +16,7 @@ class UsuarioController extends Controller {
 	}
 
 	public function save(UsuarioRequest $request){
+		session_start();
 		$params = array('name', 'email', 'password', 'remember_token', 'admin');
 		$params['name'] = $request->input('name');
 		$params['email'] = $request->input('email');
@@ -31,6 +33,28 @@ class UsuarioController extends Controller {
 		$user->save();
 
 		return redirect('/user_cad')->withInput();
+	}
+
+	public function senha_alt(){
+		return view('usuarios.senha_alt');
+	}
+
+	public function update(SenhaRequest $request){
+		$params = array('password', 'remember_token');
+		$params['password'] = $request->input('password');
+		$params['remember_token'] = $request->input('remember_token');
+
+		if($params['password'] <> $params['remember_token']){
+			$error_senha = "As senhas não coincidem.";
+			return view('usuarios.senha_alt')->with('error_senha', $error_senha);
+		}
+		else{
+			$user = UsuarioModel::find(Auth::user()->id);
+			$user->password = Hash::make($params['password']);
+			$user->remember_token = Hash::make($params['remember_token']);
+			$user->save();
+			return redirect('/senha_alt')->withInput();
+		}
 	}
 
 }

@@ -5,6 +5,11 @@
 	<h2>Novo usuário</h2>
 	<hr>
 
+	<ol class="breadcrumb">
+  		<li class="active">Início</li>
+  		<li class="active">Cadastro de usuários</li>
+	</ol>
+
 	@if(count($errors) > 0)
 		<div class="alert alert-danger">
 			@foreach($errors->all() as $error)

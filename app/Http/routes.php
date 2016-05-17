@@ -29,6 +29,10 @@ Route::get('/user_cad', 'UsuarioController@user_cad');
 
 Route::post('/user_cad/save', 'UsuarioController@save');
 
+Route::get('/senha_alt', 'UsuarioController@senha_alt');
+
+Route::post('/senha_alt/update', 'UsuarioController@update');
+
 /*Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
