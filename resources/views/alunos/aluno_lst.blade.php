@@ -5,6 +5,11 @@
 	<h2>Listagem de alunos</h2>
 	<hr>
 
+	<ol class="breadcrumb">
+  		<li class="active">Início</li>
+  		<li class="active">Listagem de alunos</li>
+	</ol>
+
 	<div class="table-background">
 		<table class="table table-bordered table-hover">
 			<thead>
