@@ -25,7 +25,7 @@ Route::post('/send_link', 'ResetSenhaController@send_link');
 
 Route::get('/alt_senha', 'ResetSenhaController@alt_senha');
 
-Route::post('/alt_senha/update', 'ResetSenhaController@update');
+Route::post('/update_senha', 'ResetSenhaController@update_senha');
 
 Route::get('/aluno_cad', 'AlunoController@aluno_cad');
 

@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Login</title>
+        <title>Recuperar senha</title>
         <link href="vendor/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="custom/custom.css">
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -19,7 +19,6 @@
         <div class="container">
             <fieldset class="col-md-5 col-md-offset-3">
                 <br><br>
-                
                 <h2>Recuperar senha</h2>
 
                 <form action="/send_link" method="post" class="form-signin">

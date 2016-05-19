@@ -19,9 +19,22 @@
         <div class="container">
             <fieldset class="col-md-5 col-md-offset-3">
                 <br><br>
+
+                @if(!empty($msg_error))
+                    <div class="alert alert-danger">
+                        {{$msg_error}}
+                    </div>
+                @endif
+
+                @if(!empty($msg_success))
+                    <div class="alert alert-success">
+                        {{$msg_success}}
+                    </div>
+                @endif
+
                 <h2>Recuperar senha</h2>
 
-                <form action="/alt_senha/update" method="post" class="form-signin">
+                <form action="/update_senha" method="post" class="form-signin">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                     <div class="form-group">
                         <label>Código de verificação</label>
