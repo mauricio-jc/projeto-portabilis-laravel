@@ -6,7 +6,9 @@ use Auth;
 class AutorizacaoMiddleware {
 
 	public function handle($request, Closure $next){
-		if((!$request->is('/') && !$request->is('logar')) && Auth::guest()){
+		if((!$request->is('/') && !$request->is('logar')) && 
+			!$request->is('reset_senha') && !$request->is('send_link') && 
+			!$request->is('alt_senha') && Auth::guest()){
 			return redirect('/');
 		}
 

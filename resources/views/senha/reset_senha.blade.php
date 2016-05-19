@@ -19,33 +19,16 @@
         <div class="container">
             <fieldset class="col-md-5 col-md-offset-3">
                 <br><br>
-                @if(old('email'))
-                     <div class="alert alert-danger">
-                        Credenciais não válidas!
-                    </div>
-                @endif
-            
-                @if(!empty($msg_logout))
-                    <div class="alert alert-info">
-                        {{$msg_logout}}
-                    </div>
-                @endif
-                <h2>Acesso ao sistema</h2>
+                
+                <h2>Recuperar senha</h2>
 
-                <form action="/logar" method="post" class="form-signin">
+                <form action="/send_link" method="post" class="form-signin">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                     <div class="form-group">
                         <label>E-mail</label>
                         <input type="email" name="email" class="form-control input-login" required autofocus>
                     </div>
-                    <div class="form-group">
-                        <label>Senha</label>
-                        <input type="password" name="password" class="form-control input-login" required>
-                    </div>
-                    <div class="form-group">
-                        <a href="/reset_senha">Esqueceu sua senha?</a>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block btn-lg">Entrar</button>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Enviar link por email</button>
                 </form>
             </fieldset>
         </div>

@@ -19,6 +19,14 @@ Route::get('/home', 'ProjetoController@main');
 
 Route::post('/logar', 'LoginController@logar');
 
+Route::get('/reset_senha', 'ResetSenhaController@reset_senha');
+
+Route::post('/send_link', 'ResetSenhaController@send_link');
+
+Route::get('/alt_senha', 'ResetSenhaController@alt_senha');
+
+Route::post('/alt_senha/update', 'ResetSenhaController@update');
+
 Route::get('/aluno_cad', 'AlunoController@aluno_cad');
 
 Route::post('/aluno_cad/save', 'AlunoController@save');
