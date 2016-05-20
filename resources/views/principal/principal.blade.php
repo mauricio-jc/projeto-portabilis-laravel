@@ -71,18 +71,32 @@
             <div class="row">
                 <div class="col-sm-3 col-md-2 sidebar">
                     <ul class="nav nav-sidebar">
-                        <li><a role="button" data-toggle="collapse" href="#admin" aria-expanded="false" aria-controls="collapseExample">Cadastros</a></li>
+                        <li><a role="button" data-toggle="collapse" href="#admin" aria-expanded="false" aria-controls="collapseExample" id="clickDownCad">
+                            Cadastros <span id="down" class="glyphicon glyphicon-chevron-down"></span>
+                            </a>
+                        </li>
+                        <li><a role="button" data-toggle="collapse" href="#admin" aria-expanded="false" aria-controls="collapseExample" id="clickUpCad">
+                            Cadastros <span id="up" class="glyphicon glyphicon-chevron-up"></span>
+                            </a>
+                        </li>
                         <div class="collapse" id="admin">
                             <div class="well">
                                 <ul>
                                     <li><a href="/aluno_cad">Alunos</a></li>
-                                    <li><a href="#">Cursos</a></li>
+                                    <li><a href="/curso_cad">Cursos</a></li>
                                     <li><a href="#">Matriculas</a></li>
                                 </ul>
                             </div>
                         </div>
 
-                        <li><a role="button" data-toggle="collapse" href="#agenda" aria-expanded="false" aria-controls="collapseExample">Listagens</a></li>
+                        <li><a role="button" data-toggle="collapse" href="#agenda" aria-expanded="false" aria-controls="collapseExample" id="clickDownLis">
+                            Listagens <span id="down" class="glyphicon glyphicon-chevron-down"></span>
+                            </a>
+                        </li>
+                        <li><a role="button" data-toggle="collapse" href="#agenda" aria-expanded="false" aria-controls="collapseExample" id="clickUpLis">
+                            Listagens <span id="up" class="glyphicon glyphicon-chevron-up"></span>
+                            </a>
+                        </li>
                         <div class="collapse" id="agenda">
                             <div class="well">
                                 <ul>
@@ -94,7 +108,14 @@
                             </div>
                         </div>
 
-                        <li><a role="button" data-toggle="collapse" href="#endereco" aria-expanded="false" aria-controls="collapseExample">Pagamento</a></li>
+                        <li><a role="button" data-toggle="collapse" href="#endereco" aria-expanded="false" aria-controls="collapseExample" id="clickDownPag">
+                            Pagamento <span id="down" class="glyphicon glyphicon-chevron-down"></span>
+                            </a>
+                        </li>
+                        <li><a role="button" data-toggle="collapse" href="#endereco" aria-expanded="false" aria-controls="collapseExample" id="clickUpPag">
+                            Pagamento <span id="up" class="glyphicon glyphicon-chevron-up"></span>
+                            </a>
+                        </li>
                         <div class="collapse" id="endereco">
                             <div class="well">
                                 <ul>
@@ -119,6 +140,14 @@
         <script src="../custom/holder.min.js"></script>
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
         <script src="../custom/ie10-viewport-bug-workaround.js"></script>
+        <script src="custom/event.js"></script>
+        <script>
+            window.onload = function(){
+                $('#clickUpCad').hide();
+                $('#clickUpLis').hide();
+                $('#clickUpPag').hide();
+            }
+        </script>
         @yield('links')
     </body>
 </html>

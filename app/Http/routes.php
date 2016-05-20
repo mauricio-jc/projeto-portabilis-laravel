@@ -33,6 +33,10 @@ Route::post('/aluno_cad/save', 'AlunoController@save');
 
 Route::get('/aluno_lst', 'AlunoController@aluno_lst');
 
+Route::get('/curso_cad', 'CursoController@curso_cad');
+
+Route::post('/curso_cad/save', 'CursoController@save');
+
 Route::get('/user_cad', 'UsuarioController@user_cad');
 
 Route::post('/user_cad/save', 'UsuarioController@save');
