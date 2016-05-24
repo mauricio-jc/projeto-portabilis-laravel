@@ -10,10 +10,35 @@
   		<li class="active">Listagem de alunos</li>
 	</ol>
 
-	<div class="table-background">
-		<table class="table table-bordered table-hover">
+	<form action="/aluno_lst" method="get">
+		<div class="form-group col-md-2">
+			<label>Código do aluno:</label>
+			<input type="text" class="form-control input-text" id="id" name="id">
+		</div>
+		<div class="form-group col-md-10">
+			<label>Nome do aluno:</label>
+			<input type="text" class="form-control input-text" id="nome" name="nome">
+		</div>
+		<div class="form-group col-md-6">
+			<label>CPF do aluno:</label>
+			<input type="text" class="form-control input-text" id="cpf" name="cpf">
+		</div>
+		<div class="form-group col-md-6">
+			<label>RG do aluno:</label>
+			<input type="text" class="form-control input-text" id="rg" name="rg">
+		</div>
+		<div class="form-group col-md-12">
+			<button type="submit" id="buscar" name="buscar" class="btn btn-success">Buscar</button>
+		</div>
+	</form>
+
+	<hr>
+
+	<div class="col-md-12">
+		<table class="table table-bordered table-hover table-background">
 			<thead>
 				<tr class="active">
+					<th>Cód.</th>
 					<th>Nome</th>
 					<th>CPF</th>
 					<th>RG</th>
@@ -26,6 +51,7 @@
 			<?php 
 				foreach($alunos as $aluno): ?>
 					<tr>
+						<td><?php echo $aluno->id; ?></td>
 						<td><?php echo $aluno->nome; ?></td>
 						<td><?php echo $aluno->cpf; ?></td>
 						<td><?php echo $aluno->rg; ?></td>
@@ -45,4 +71,13 @@
 		<?php echo $alunos->render(); ?>
 	</div>
 
+@stop
+
+@section('links')
+	<script src="../vendor/js/jqueryMask.js"></script>
+	<script>
+		jQuery(function($){
+            $("#cpf").mask("999.999.999-99");
+        });
+	</script>
 @stop

@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <link rel="icon" href="#">
+        <link rel="shortcut icon" href="../images/logo-ico.jpg"/>
         <title>Projeto Portabilis - Laravel</title>
         <link href="../vendor/css/bootstrap.min.css" rel="stylesheet">
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
