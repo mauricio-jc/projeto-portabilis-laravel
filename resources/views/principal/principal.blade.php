@@ -101,7 +101,7 @@
                             <div class="well">
                                 <ul>
                                     <li><a href="/aluno_lst">Alunos</a></li>
-                                    <li><a href="#">Cursos</a></li>
+                                    <li><a href="/curso_lst">Cursos</a></li>
                                     <li><a href="#">Matriculas</a></li>
                                     <li><a href="#">Usuários</a></li>
                                 </ul>

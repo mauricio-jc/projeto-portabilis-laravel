@@ -3,7 +3,7 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\CursoModel;
-use Illuminate\Http\Request;
+use Request;
 use App\Http\Requests\CursoRequest;
 
 class CursoController extends Controller {
@@ -23,6 +23,22 @@ class CursoController extends Controller {
 		$curso->save();
 		return redirect('/curso_cad')->withInput();
 
+	}
+
+	public function curso_lst(){
+		if(isset($_GET['buscar'])){
+			$params_curso = Request::all();
+
+			$cursos = CursoModel::orderBy('nome');
+			if($params_curso['nome'] <> "") $cursos->where('nome', 'like', '%' . $params_curso['nome'] . '%');
+			if($params_curso['periodo'] <> 0) $cursos->where('periodo', '=', $params_curso['periodo']);
+			$cursos = $cursos->paginate(20);
+			return view('cursos.curso_lst')->with('cursos', $cursos);
+		}
+		else{
+			$cursos = CursoModel::orderBy('nome')->paginate(20);
+			return view('cursos.curso_lst')->with('cursos', $cursos);
+		}
 	}
 
 }
