@@ -45,7 +45,10 @@
 			<input type="text" id="ano" name="ano" class="form-control input-text">
 		</div>
 		<div class="form-group col-md-6">
-			<button type="submit" class="btn btn-success">Cadastrar</button>
+			<button type="submit" class="btn btn-success">
+				<span class="glyphicon glyphicon-plus"></span>
+				Cadastrar
+			</button>
 		</div>
 	</form>
 

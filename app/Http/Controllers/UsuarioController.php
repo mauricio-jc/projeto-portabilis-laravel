@@ -57,4 +57,19 @@ class UsuarioController extends Controller {
 		}
 	}
 
+	public function user_lst(){
+		if(isset($_GET['buscar'])){
+			$params = Request::all();
+			$usuarios = UsuarioModel::orderBy('id');
+			if($params['id'] <> "") $usuarios->where('id', '=', $params['id']);
+			if($params['name'] <> "") $usuarios->where('name', 'like', '%' . $params['name'] . '%');
+			if($params['email'] <> "") $usuarios->where('email', '=', $params['email']);
+			if($params['admin'] <> "") $usuarios->where('admin', '=', $params['admin']);
+			$usuarios = $usuarios->paginate(20);
+			return view('usuarios.user_lst')->with('usuarios', $usuarios);
+		}else{
+			$usuarios = UsuarioModel::orderBY('id')->paginate(20);
+			return view('usuarios.user_lst')->with('usuarios', $usuarios);
+		}
+	}
 }

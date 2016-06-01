@@ -40,7 +40,7 @@
                     @if($_SESSION['admin'] == 1)
                         <ul class="nav navbar-nav">
                             <li>
-                                <a href="/user_cad">Novo usuário</a>
+                                <a href="/user_cad"><span class="glyphicon glyphicon-plus"></span>Novo usuário</a>
                             </li>
                         </ul>
                     @endif
@@ -104,7 +104,7 @@
                                     <li><a href="/aluno_lst">Alunos</a></li>
                                     <li><a href="/curso_lst">Cursos</a></li>
                                     <li><a href="#">Matriculas</a></li>
-                                    <li><a href="#">Usuários</a></li>
+                                    <li><a href="/user_lst">Usuários</a></li>
                                 </ul>
                             </div>
                         </div>

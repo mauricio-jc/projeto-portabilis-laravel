@@ -20,7 +20,10 @@
 			</select>
 		</div>
 		<div class="form-group col-md-12">
-			<button type="submit" id="buscar" name="buscar" class="btn btn-primary">Buscar</button>
+			<button type="submit" id="buscar" name="buscar" class="btn btn-primary">
+				<span class="glyphicon glyphicon-search"></span>
+				Buscar
+			</button>
 		</div>
 	</form>
 
@@ -47,8 +50,14 @@
 							<td>Noturno</td>
 						@endif
 						<td>
-							<a href="#" class="btn btn-success">Editar</a>
-							<a href="#" class="btn btn-danger">Excluir</a>
+							<a href="#" class="btn btn-success">
+								<span class="glyphicon glyphicon-refresh"></span>
+								Editar
+							</a>
+							<a href="#" class="btn btn-danger">
+								<span class="glyphicon glyphicon-remove"></span>
+								Excluir
+							</a>
 						</td>
 					</tr>
 				@endforeach

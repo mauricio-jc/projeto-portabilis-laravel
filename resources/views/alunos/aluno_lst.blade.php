@@ -28,7 +28,10 @@
 			<input type="text" class="form-control input-text" id="rg" name="rg">
 		</div>
 		<div class="form-group col-md-12">
-			<button type="submit" id="buscar" name="buscar" class="btn btn-success">Buscar</button>
+			<button type="submit" id="buscar" name="buscar" class="btn btn-success">
+				<span class="glyphicon glyphicon-search"></span>
+				Buscar
+			</button>
 		</div>
 	</form>
 
@@ -58,8 +61,14 @@
 						<td><?php echo date_format(new DateTime($aluno->data_nascimento), 'd/m/Y'); ?></td>
 						<td><?php echo $aluno->telefone; ?></td>
 						<th>
-							<a href="#" class="btn btn-success">Editar</a>
-							<a href="#" class="btn btn-danger">Remover</a>
+							<a href="#" class="btn btn-success">
+								<span class="glyphicon glyphicon-refresh"></span>
+								Editar
+							</a>
+							<a href="#" class="btn btn-danger">
+								<span class="glyphicon glyphicon-remove"></span>
+								Remover
+							</a>
 						</th>
 					</tr>
 			<?php endforeach; ?>

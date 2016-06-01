@@ -51,7 +51,10 @@
 			<input type="text" class="form-control input-text" id="telefone" name="telefone" value="{{old('telefone')}}">
 		</div>
 		<div class="form-group col-md-12">
-			<button type="submit" class="btn btn-success" nome="salvar">Salvar</button>
+			<button type="submit" class="btn btn-success" nome="salvar">
+				<span class="glyphicon glyphicon-floppy-disk"></span>
+				Salvar
+			</button>
 		</div>
 	</form>
 

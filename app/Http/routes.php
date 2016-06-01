@@ -51,6 +51,8 @@ Route::get('/user_cad', 'UsuarioController@user_cad');
 
 Route::post('/user_cad/save', 'UsuarioController@save');
 
+Route::get('/user_lst', 'UsuarioController@user_lst');
+
 Route::get('/senha_alt', 'UsuarioController@senha_alt');
 
 Route::post('/senha_alt/update', 'UsuarioController@update');

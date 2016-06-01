@@ -46,7 +46,10 @@
 			<label>Valor da inscrição</label>
 			<input type="text" id="valor_inscricao" name="valor_inscricao" class="form-control input-text" value="{{old('valor_inscricao')}}">
 		</div>
-		<button type="submit" class="btn btn-primary">Cadastrar</button>
+		<button type="submit" class="btn btn-primary">
+			<span class="glyphicon glyphicon-floppy-disk"></span>
+			Cadastrar
+		</button>
 	</form>
 
 @stop()

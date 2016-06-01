@@ -52,7 +52,10 @@
     		<input type="password" name="remember_token" class="form-control input-text">
     	</div>
     	<div class="form-group col-md-12">
-    		<button type="submit" class="btn btn-success">Alterar</button>
+    		<button type="submit" class="btn btn-success">
+				<span class="glyphicon glyphicon-refresh"></span>
+    			Alterar
+    		</button>
     	</div>
 	</form>
 
