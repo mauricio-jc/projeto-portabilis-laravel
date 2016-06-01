@@ -22,6 +22,7 @@
             <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
             <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
+        @yield('css')
     </head>
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -84,7 +85,7 @@
                                 <ul>
                                     <li><a href="/aluno_cad">Alunos</a></li>
                                     <li><a href="/curso_cad">Cursos</a></li>
-                                    <li><a href="#">Matriculas</a></li>
+                                    <li><a href="/matricula_cad">Matriculas</a></li>
                                 </ul>
                             </div>
                         </div>
