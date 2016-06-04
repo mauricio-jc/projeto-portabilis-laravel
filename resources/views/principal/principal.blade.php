@@ -103,7 +103,7 @@
                                 <ul>
                                     <li><a href="/aluno_lst">Alunos</a></li>
                                     <li><a href="/curso_lst">Cursos</a></li>
-                                    <li><a href="#">Matriculas</a></li>
+                                    <li><a href="/matricula_lst">Matriculas</a></li>
                                     <li><a href="/user_lst">Usuários</a></li>
                                 </ul>
                             </div>

@@ -5,7 +5,7 @@
 	<h2>Listagem de usuários do sistema</h2>
 	<hr>
 
-	<form action="#" method="get">
+	<form action="/user_lst" method="get">
 		<div class="form-group col-md-3">
 			<label>Código:</label>
 			<input type="text" id="id" name="id" class="form-control input-text">

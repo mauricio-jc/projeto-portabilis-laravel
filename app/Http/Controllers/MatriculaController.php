@@ -38,6 +38,33 @@ class MatriculaController extends Controller {
 		}
 	}
 
+	public function matricula_lst(){
+		if(isset($_GET['buscar'])){
+			$params = Request::all();
+			if($params['ano'] == "") $params['ano'] = 0;
+			if($params['aluno_id'] == "") $params['aluno_id'] = 0;
+			if($params['curso_id'] == "") $params['curso_id'] = 0;
+			if(isset($_GET['pago'])) $pago = 1; else $pago = 0;
+			$matricula = new MatriculaModel();
+			$matriculas = $matricula->listagem_matricula_detalhes($params['ano'], 
+																  $params['aluno_id'], 
+																  $params['curso_id'],
+																  $params['ativo'],
+																  $pago);
+			return view('matricula.matricula_lst')->with('matriculas', $matriculas);
+		}
+		else{
+			$ano = 0;
+			$aluno_id = 0;
+			$curso_id = 0;
+			$ativo = -1;
+			$pago = 0;
+			$matricula = new MatriculaModel();
+			$matriculas = $matricula->listagem_matricula_detalhes($ano, $aluno_id, $curso_id, $ativo, $pago);
+			return view('matricula.matricula_lst')->with('matriculas', $matriculas);
+		}
+	}
+
 	public function buscaraluno(){
 		$aluno = Request::input('term');
 		if($aluno == " "){

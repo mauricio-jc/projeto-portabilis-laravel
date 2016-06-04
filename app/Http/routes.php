@@ -47,6 +47,8 @@ Route::get('buscarcurso', 'MatriculaController@buscarcurso');
 
 Route::post('/matricula_cad/save', 'MatriculaController@save');
 
+Route::get('/matricula_lst', 'MatriculaController@matricula_lst');
+
 Route::get('/user_cad', 'UsuarioController@user_cad');
 
 Route::post('/user_cad/save', 'UsuarioController@save');
