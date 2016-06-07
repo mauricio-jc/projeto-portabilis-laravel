@@ -41,4 +41,20 @@ class AlunoController extends Controller {
 			return view('alunos.aluno_lst')->with('alunos', $alunos);
 		}
 	}
+
+	public function buscaraluno(){
+		$aluno = Request::input('term');
+		if($aluno == " "){
+			$alunos = AlunoModel::limit(10)->get();
+		}
+		else{
+			$alunos = AlunoModel::where("nome", "like", "%$aluno%")->limit(10)->get();
+		}
+
+		$result = [];
+        foreach ($alunos as $a) {
+            $result[] = array("value" => $a->id . " - " . $a->nome);
+        }
+		return $result;
+	}
 }

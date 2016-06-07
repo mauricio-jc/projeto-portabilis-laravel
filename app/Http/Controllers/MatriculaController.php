@@ -29,8 +29,10 @@ class MatriculaController extends Controller {
 
 		$getMatCad = count($verMatCad);
 		if($getMatCad == 0){
-			$matricula->insert_matricula($params['aluno_id'], $params['curso_id'], 
-				 						 $params['data_matricula'], $params['ano']);
+			$matricula->insert_matricula($params['aluno_id'], 
+										 $params['curso_id'], 
+				 						 $params['data_matricula'], 
+				 						 $params['ano']);
 			return redirect('/matricula_cad')->withInput();
 		}else{
 			echo "<script language='javascript' type='text/javascript'>alert('Aluno já cadastratdo neste curso, para este período e ano.');</script>";
@@ -60,40 +62,12 @@ class MatriculaController extends Controller {
 			$ativo = -1;
 			$pago = 0;
 			$matricula = new MatriculaModel();
-			$matriculas = $matricula->listagem_matricula_detalhes($ano, $aluno_id, $curso_id, $ativo, $pago);
+			$matriculas = $matricula->listagem_matricula_detalhes($ano, 
+																  $aluno_id, 
+																  $curso_id, 
+																  $ativo, 
+																  $pago);
 			return view('matricula.matricula_lst')->with('matriculas', $matriculas);
 		}
-	}
-
-	public function buscaraluno(){
-		$aluno = Request::input('term');
-		if($aluno == " "){
-			$alunos = AlunoModel::limit(10)->get();
-		}
-		else{
-			$alunos = AlunoModel::where("nome", "like", "%$aluno%")->limit(10)->get();
-		}
-
-		$result = [];
-        foreach ($alunos as $a) {
-            $result[] = array("value" => $a->id . " - " . $a->nome);
-        }
-		return $result;
-	}
-
-	public function buscarcurso(){
-		$curso = Request::input('term');
-		if($curso == " "){
-			$cursos = CursoModel::limit(10)->get();
-		}
-		else{
-			$cursos = CursoModel::where("nome", "like", "%$curso%")->limit(10)->get();
-		}
-
-		$result = [];
-        foreach ($cursos as $c) {
-            $result[] = array("value" => $c->id . " - " . $c->nome);
-        }
-		return $result;
 	}
 }

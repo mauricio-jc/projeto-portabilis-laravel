@@ -41,4 +41,19 @@ class CursoController extends Controller {
 		}
 	}
 
+	public function buscarcurso(){
+		$curso = Request::input('term');
+		if($curso == " "){
+			$cursos = CursoModel::limit(10)->get();
+		}
+		else{
+			$cursos = CursoModel::where("nome", "like", "%$curso%")->limit(10)->get();
+		}
+
+		$result = [];
+        foreach ($cursos as $c) {
+            $result[] = array("value" => $c->id . " - " . $c->nome);
+        }
+		return $result;
+	}
 }
