@@ -44,13 +44,25 @@ class MatriculaController extends Controller {
 		if(isset($_GET['buscar'])){
 			$params = Request::all();
 			if($params['ano'] == "") $params['ano'] = 0;
-			if($params['aluno_id'] == "") $params['aluno_id'] = 0;
-			if($params['curso_id'] == "") $params['curso_id'] = 0;
+			if($params['aluno_id'] == ""){
+				$aluno_id = 0;
+			}
+			else{
+				$arrAluno = explode("-", $params['aluno_id']);
+				$aluno_id = $arrAluno[0];
+			}
+			if($params['curso_id'] == ""){
+				$curso_id = 0;
+			}
+			else{
+				$arrCurso = explode("-", $params['curso_id']);
+				$curso_id = $arrCurso[0];
+			}
 			if(isset($_GET['pago'])) $pago = 1; else $pago = 0;
 			$matricula = new MatriculaModel();
 			$matriculas = $matricula->listagem_matricula_detalhes($params['ano'], 
-																  $params['aluno_id'], 
-																  $params['curso_id'],
+																  $aluno_id, 
+																  $curso_id,
 																  $params['ativo'],
 																  $pago);
 			return view('matricula.matricula_lst')->with('matriculas', $matriculas);
@@ -69,5 +81,19 @@ class MatriculaController extends Controller {
 																  $pago);
 			return view('matricula.matricula_lst')->with('matriculas', $matriculas);
 		}
+	}
+
+	public function matricula_desat($id){
+		$matricula = MatriculaModel::find($id);
+		$matricula->ativo = 0;
+		$matricula->save();
+		return redirect('/matricula_lst')->withInput();
+	}
+
+	public function matricula_ati($id){
+		$matricula = MatriculaModel::find($id);
+		$matricula->ativo = 1;
+		$matricula->save();
+		return redirect('/matricula_lst')->withInput();	
 	}
 }

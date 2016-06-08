@@ -1,5 +1,9 @@
 @extends('principal.principal')
 
+@section('css')
+	<link rel="stylesheet" type="text/css" href="vendor/css/jquery-ui.min.css">
+@stop
+
 @section('conteudo')
 	
 	<h2>Listagem de matrículas</h2>
@@ -21,9 +25,9 @@
 		<div class="form-group col-md-7">
 			<label>Situação:</label>
 			<select id="ativo" name="ativo" class="form-control input-text">
+				<option value="-1">Todos</option>
 				<option value="1">Ativos</option>
 				<option value="0">Inativos</option>
-				<option value="-1">Todos</option>
 			</select>
 		</div>
 		<div class="checkbox col-md-5">
@@ -59,17 +63,70 @@
 						<td>{{$matricula->pago}}</td>
 						<td>
 							@if($matricula->situacao_matricula == 'Ativo')
-								<a href="#"><span class="glyphicon glyphicon-remove" title="Inativar"></span></a>
+								<a href="/matricula_desat/{{$matricula->id}}" class="btn btn-danger" onclick="return confirm('Deseja mesmo inativar esta matrícula?');">
+									<span class="glyphicon glyphicon-remove"></span>
+									Inativar
+								</a>
 							@else
-								<a href="#"><span class="glyphicon glyphicon-ok" title="Ativar"></span></a>
+								<a href="/matricula_ati/{{$matricula->id}}" class="btn btn-success" onclick="return confirm('Deseja mesmo ativar a matrícula?');">
+									<span class="glyphicon glyphicon-ok" ></span>
+									Ativar
+								</a>
 							@endif
-							/
-							<a href="#"><span class="glyphicon glyphicon-search" title="Visualizar"></span></a>
+							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{$matricula->id}}">
+  								Visualizar
+							</button>
 						</td>
 					</tr>
+					<div class="modal fade" id="{{$matricula->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  						<div class="modal-dialog" role="document">
+    						<div class="modal-content">
+      							<div class="modal-header">
+        							<h3 class="modal-title" id="myModalLabel">
+        								<strong>Detalhes da matrícula</strong>
+        							</h3>
+      							</div>
+      							<div class="modal-body">
+        							<strong>Código: </strong>{{$matricula->id}} <br>
+        							<strong>Nome: </strong>{{$matricula->nome_aluno}} <br>
+        							<strong>Curso: </strong>{{$matricula->curso_nome}} <br>
+        							<strong>Ano: </strong>{{$matricula->ano}} <br>
+        							<strong>Situação: </strong>{{$matricula->situacao_matricula}} <br>
+        							<strong>Pago: </strong>{{$matricula->pago}} <br>
+        							<strong>Período: </strong>{{$matricula->periodo}} <br>
+        							<strong>Telefone: </strong>{{$matricula->telefone}} <br>
+        							<strong>Data de nascimento: </strong><?php echo date_format(new DateTime($matricula->data_nascimento), 'd/m/Y'); ?>
+      							</div>
+      							<div class="modal-footer">
+        							<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+      							</div>
+    						</div>
+  						</div>
+					</div>
 				@endforeach
 			</tbody>
 		</table>
 	</div>
+@stop
 
+@section('links')
+	<script src="../vendor/js/jqueryMask.js"></script>
+	<script src="../vendor/js/jquery-ui.min.js"></script>
+	<script>
+		$(function (){
+			$('#aluno_id').autocomplete({
+            	source : 'buscaraluno'
+			});
+		});
+
+		$(function (){
+			$('#curso_id').autocomplete({
+            	source : 'buscarcurso'
+			});
+		});
+
+		jQuery(function($){
+            $("#ano").mask("9999");
+        });
+	</script>
 @stop

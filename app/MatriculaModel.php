@@ -28,7 +28,7 @@ class MatriculaModel extends Model {
 	}
 
 	public function listagem_matricula_detalhes($ano, $aluno_id, $curso_id, $ativo, $pago){
-		$matricula = DB::select("SELECT matricula.id AS cod_matricula,
+		$matricula = DB::select("SELECT matricula.id AS id,
        									alunos.nome AS nome_aluno,
        									cursos.nome AS curso_nome,
        									matricula.ano,
@@ -51,7 +51,8 @@ class MatriculaModel extends Model {
       									(CASE WHEN $aluno_id = 0 THEN true ELSE alunos.id = $aluno_id END) AND
       									(CASE WHEN $curso_id = 0 THEN true ELSE cursos.id = $curso_id END) AND
       									(CASE WHEN $ativo = -1 THEN true ELSE matricula.ativo = $ativo END) AND
-      									(CASE WHEN $pago = 0 THEN true ELSE matricula.pago = $pago END)");
+      									(CASE WHEN $pago = 0 THEN true ELSE matricula.pago = $pago END)
+      						   ORDER BY id");
 		return $matricula;
 	}
 }

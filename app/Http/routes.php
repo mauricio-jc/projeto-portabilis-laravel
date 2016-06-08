@@ -49,6 +49,10 @@ Route::post('/matricula_cad/save', 'MatriculaController@save');
 
 Route::get('/matricula_lst', 'MatriculaController@matricula_lst');
 
+Route::get('/matricula_desat/{id}', 'MatriculaController@matricula_desat');
+
+Route::get('/matricula_ati/{id}', 'MatriculaController@matricula_ati');
+
 Route::get('/user_cad', 'UsuarioController@user_cad');
 
 Route::post('/user_cad/save', 'UsuarioController@save');
