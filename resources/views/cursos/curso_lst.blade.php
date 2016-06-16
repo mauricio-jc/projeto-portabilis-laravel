@@ -22,7 +22,7 @@
 		<div class="form-group col-md-12">
 			<button type="submit" id="buscar" name="buscar" class="btn btn-primary">
 				<span class="glyphicon glyphicon-search"></span>
-				Buscar
+				<strong>Buscar</strong>
 			</button>
 		</div>
 	</form>
@@ -30,7 +30,7 @@
 	<div class="col-md-12">
 		<table class="table table-bordered table-hover table-background">
 			<thead>
-				<tr>
+				<tr class="active">
 					<th>Curso</th>
 					<th>Valor</th>
 					<th>Período</th>
@@ -52,11 +52,11 @@
 						<td>
 							<a href="#" class="btn btn-success">
 								<span class="glyphicon glyphicon-refresh"></span>
-								Editar
+								<strong>Editar</strong>
 							</a>
 							<a href="#" class="btn btn-danger">
 								<span class="glyphicon glyphicon-remove"></span>
-								Excluir
+								<strong>Excluir</strong>
 							</a>
 						</td>
 					</tr>

@@ -31,7 +31,7 @@
                     </div>
                 @endif
                 <h2>Acesso ao sistema</h2>
-
+                <hr>
                 <form action="/logar" method="post" class="form-signin">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                     <div class="form-group">
@@ -45,7 +45,7 @@
                     <div class="form-group">
                         <a href="/reset_senha">Esqueceu sua senha?</a>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block btn-lg">Entrar</button>
+                    <button type="submit" class="btn btn-primary btn-block btn-lg"><strong>Entrar</strong></button>
                 </form>
             </fieldset>
         </div>

@@ -30,11 +30,11 @@
 	<form action="/user_cad/save" method="post">
 		<input type="hidden" name="_token" value="{{csrf_token()}}">
 		<div class="form-group col-md-6">
-			<label>Nome *</label>
+			<label>Nome: *</label>
 			<input type="text" name="name" class="form-control input-text" value="{{old('name')}}" autofocus>
 		</div>
 		<div class="form-group col-md-6">
-			<label>E-mail *</label>
+			<label>E-mail: *</label>
 			<input type="email" name="email" class="form-control input-text" value="{{old('email')}}">
 		</div>
 		<div class="checkbox col-md-12">
@@ -43,7 +43,7 @@
     		</label>
   		</div>
   		<div class="col-md-12">
-  			<button class="btn btn-primary">Salvar</button>
+  			<button class="btn btn-primary"><strong>Salvar</strong></button>
   		</div>
 	</form>
 

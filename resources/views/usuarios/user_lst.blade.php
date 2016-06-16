@@ -29,7 +29,7 @@
 		<div class="form-group col-md-12">
 			<button type="submit" id="buscar" name="buscar" class="btn btn-primary">
 				<span class="glyphicon glyphicon-search"></span>
-				Buscar
+				<strong>Buscar</strong>
 			</button>
 		</div>
 	</form>
@@ -37,12 +37,12 @@
 	<div class="col-md-12">
 		<table class="table table-bordered table-hover table-background">
 			<thead>
-				<tr>
-					<td>Código</td>
-					<td>Nome</td>
-					<td>E-mail</td>
-					<td>Administrador</td>
-					<td>Ações</td>
+				<tr class="active">
+					<th>Código</th>
+					<th>Nome</th>
+					<th>E-mail</th>
+					<th>Administrador</th>
+					<th>Ações</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -60,18 +60,18 @@
 							<td>
 								<a href="#" class="btn btn-success">
 									<span class="glyphicon glyphicon-refresh"></span>
-									Editar
+									<strong>Editar</strong>
 								</a>
 								<a href="#" class="btn btn-danger">
 									<span class="glyphicon glyphicon-remove"></span>
-									Excluir
+									<strong>Excluir</strong>
 								</a>
 							</td>
 						@else
 							<td>
 								<a href="#" class="btn btn-info">
 									<span class="glyphicon glyphicon-remove"></span>
-									Ação não permitida
+									<strong>Ação não permitida</strong>
 								</a>
 							</td>
 						@endif

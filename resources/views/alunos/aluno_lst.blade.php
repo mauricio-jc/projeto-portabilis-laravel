@@ -30,7 +30,7 @@
 		<div class="form-group col-md-12">
 			<button type="submit" id="buscar" name="buscar" class="btn btn-success">
 				<span class="glyphicon glyphicon-search"></span>
-				Buscar
+				<strong>Buscar</strong>
 			</button>
 		</div>
 	</form>
@@ -63,11 +63,11 @@
 						<th>
 							<a href="#" class="btn btn-success">
 								<span class="glyphicon glyphicon-refresh"></span>
-								Editar
+								<strong>Editar</strong>
 							</a>
 							<a href="#" class="btn btn-danger">
 								<span class="glyphicon glyphicon-remove"></span>
-								Remover
+								<strong>Remover</strong>
 							</a>
 						</th>
 					</tr>

@@ -31,29 +31,39 @@
 	<form action="/aluno_cad/save" method="post">
 		<input type="hidden" name="_token" value="{{csrf_token()}}">
 		<div class="form-group col-md-12">
-			<label>Nome do aluno *</label>
+			<label>Nome do aluno: *</label>
 			<input type="text" class="form-control input-text" name="nome" value="{{old('nome')}}" autofocus>
 		</div>
 		<div class="form-group col-md-12">
-			<label>CPF *</label>
+			<label>CPF: *</label>
 			<input type="text" class="form-control input-text" id="cpf" name="cpf" value="{{old('cpf')}}" onchange="validaCpf(this.value);">
 		</div>
 		<div class="form-group col-md-12">
-			<label>RG *</label>
+			<label>RG: *</label>
 			<input type="text" class="form-control input-text" value="{{old('rg')}}" name="rg">
 		</div>
 		<div class="form-group col-md-6">
-			<label>Data de nascimento *</label>
-			<input type="text" class="form-control input-text" id="data_nascimento" name="data_nascimento" value="{{old('data_nascimento')}}">
+			<label>Data de nascimento: *</label>
+			<div class="input-group">
+  				<span class="input-group-addon" id="basic-addon1">
+  					<span class="glyphicon glyphicon-calendar"></span>
+  				</span>
+  				<input type="text" class="form-control input-text" id="data_nascimento" name="data_nascimento" aria-describedby="basic-addon1" value="{{old('data_nascimento')}}">
+			</div>
 		</div>
 		<div class="form-group col-md-6">
-			<label>Telefone *</label>
-			<input type="text" class="form-control input-text" id="telefone" name="telefone" value="{{old('telefone')}}">
+			<label>Telefone: *</label>
+			<div class="input-group">
+  				<span class="input-group-addon" id="basic-addon1">
+  					<span class="glyphicon glyphicon-earphone"></span>
+  				</span>
+  				<input type="text" class="form-control input-text" id="telefone" name="telefone" aria-describedby="basic-addon1" value="{{old('telefone')}}">
+			</div>
 		</div>
 		<div class="form-group col-md-12">
 			<button type="submit" class="btn btn-success" nome="salvar">
 				<span class="glyphicon glyphicon-floppy-disk"></span>
-				Salvar
+				<strong>Salvar</strong>
 			</button>
 		</div>
 	</form>

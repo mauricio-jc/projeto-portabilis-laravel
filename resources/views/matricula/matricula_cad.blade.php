@@ -38,16 +38,26 @@
 		</div>
 		<div class="form-group col-md-6">
 			<label>Data da matrícula: *</label>
-			<input type="text" id="data_matricula" name="data_matricula" class="form-control input-text">
+			<div class="input-group">
+  				<span class="input-group-addon" id="basic-addon1">
+  					<span class="glyphicon glyphicon-calendar"></span>
+  				</span>
+  				<input type="text" class="form-control input-text" id="data_matricula" name="data_matricula" aria-describedby="basic-addon1">
+			</div>
 		</div>
 		<div class="form-group col-md-6">
 			<label>Ano da matrícula: *</label>
-			<input type="text" id="ano" name="ano" class="form-control input-text">
+			<div class="input-group">
+  				<span class="input-group-addon" id="basic-addon1">
+  					<span class="glyphicon glyphicon-calendar"></span>
+  				</span>
+  				<input type="text" class="form-control input-text" id="ano" name="ano" aria-describedby="basic-addon1">
+			</div>
 		</div>
 		<div class="form-group col-md-6">
 			<button type="submit" class="btn btn-success">
 				<span class="glyphicon glyphicon-plus"></span>
-				Cadastrar
+				<strong>Cadastrar</strong>
 			</button>
 		</div>
 	</form>

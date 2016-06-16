@@ -36,7 +36,7 @@
   		<div class="form-group col-md-12">
 			<button type="submit" id="buscar" name="buscar" class="btn btn-success">
 				<span class="glyphicon glyphicon-search"></span>
-				Buscar
+				<strong>Buscar</strong>
 			</button>
 		</div>
 	</form>
@@ -44,13 +44,13 @@
 	<div class="col-md-12">
 		<table class="table table-bordered table-hover table-background">
 			<thead>
-				<tr>
-					<td>Aluno</td>
-					<td>Curso</td>
-					<td>Ano</td>
-					<td>Situação</td>
-					<td>Pago</td>
-					<td>Ações</td>
+				<tr class="active">
+					<th>Aluno</th>
+					<th>Curso</th>
+					<th>Ano</th>
+					<th>Situação</th>
+					<th>Pago</th>
+					<th>Ações</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -65,16 +65,17 @@
 							@if($matricula->situacao_matricula == 'Ativo')
 								<a href="/matricula_desat/{{$matricula->id}}" class="btn btn-danger" onclick="return confirm('Deseja mesmo inativar esta matrícula?');">
 									<span class="glyphicon glyphicon-remove"></span>
-									Inativar
+									<strong>Inativar</strong>
 								</a>
 							@else
 								<a href="/matricula_ati/{{$matricula->id}}" class="btn btn-success" onclick="return confirm('Deseja mesmo ativar a matrícula?');">
 									<span class="glyphicon glyphicon-ok" ></span>
-									Ativar
+									<strong>Ativar</strong>
 								</a>
 							@endif
 							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{$matricula->id}}">
-  								Visualizar
+								<span class="glyphicon glyphicon-search"></span>
+  								<strong>Visualizar</strong>
 							</button>
 						</td>
 					</tr>
@@ -87,7 +88,7 @@
         							</h3>
       							</div>
       							<div class="modal-body">
-        							<strong>Código: </strong>{{$matricula->id}} <br>
+        							<strong>Código da matrícula: </strong>{{$matricula->id}} <br>
         							<strong>Nome: </strong>{{$matricula->nome_aluno}} <br>
         							<strong>Curso: </strong>{{$matricula->curso_nome}} <br>
         							<strong>Ano: </strong>{{$matricula->ano}} <br>
@@ -98,7 +99,10 @@
         							<strong>Data de nascimento: </strong><?php echo date_format(new DateTime($matricula->data_nascimento), 'd/m/Y'); ?>
       							</div>
       							<div class="modal-footer">
-        							<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+        							<button type="button" class="btn btn-inverse" data-dismiss="modal">
+        								<span class="glyphicon glyphicon-remove"></span>
+        								<strong>Fechar</strong>
+        							</button>
       							</div>
     						</div>
   						</div>
