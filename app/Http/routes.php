@@ -57,6 +57,8 @@ Route::get('/user_cad', 'UsuarioController@user_cad');
 
 Route::get('/user_edi/{id}', 'UsuarioController@user_edi');
 
+Route::get('/user_del/{id}', 'UsuarioController@user_del');
+
 Route::post('/user_edi/{id}/update_user', 'UsuarioController@update_user');
 
 Route::post('/user_cad/save', 'UsuarioController@save');

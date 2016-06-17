@@ -93,4 +93,19 @@ class UsuarioController extends Controller {
 		$user->save();
 		return redirect('/user_lst');
 	}
+
+	public function user_del($id){
+		if(Auth::user()->id == $id){
+			$user = UsuarioModel::find($id);
+			$user->delete();
+			Auth::logout();
+			return redirect('/');
+		}
+		else{
+			$user = UsuarioModel::find($id);
+			$user->delete();
+
+			return redirect('/user_lst');
+		}
+	}
 }

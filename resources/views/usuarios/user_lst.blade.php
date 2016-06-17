@@ -62,7 +62,7 @@
 									<span class="glyphicon glyphicon-refresh"></span>
 									<strong>Editar</strong>
 								</a>
-								<a href="#" class="btn btn-danger">
+								<a href="/user_del/{{$user->id}}" class="btn btn-danger" onclick="return confirm('Deseja mesmo excluir este usuário?');">
 									<span class="glyphicon glyphicon-trash"></span>
 									<strong>Excluir</strong>
 								</a>
