@@ -69,10 +69,7 @@
 							</td>
 						@else
 							<td>
-								<a href="#" class="btn btn-info">
-									<span class="glyphicon glyphicon-remove"></span>
-									<strong>Ação não permitida</strong>
-								</a>
+								<span class="label label-info">Nenhuma ação permitida</span>
 							</td>
 						@endif
 					</tr>
