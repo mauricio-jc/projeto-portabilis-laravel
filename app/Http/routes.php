@@ -55,6 +55,10 @@ Route::get('/matricula_ati/{id}', 'MatriculaController@matricula_ati');
 
 Route::get('/user_cad', 'UsuarioController@user_cad');
 
+Route::get('/user_edi/{id}', 'UsuarioController@user_edi');
+
+Route::post('/user_edi/{id}/update_user', 'UsuarioController@update_user');
+
 Route::post('/user_cad/save', 'UsuarioController@save');
 
 Route::get('/user_lst', 'UsuarioController@user_lst');

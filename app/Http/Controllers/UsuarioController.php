@@ -3,6 +3,7 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UsuarioRequest;
+use App\Http\Requests\UsuarioRequestEdicao;
 use App\Http\Requests\SenhaRequest;
 use Request;
 use Hash;
@@ -71,5 +72,25 @@ class UsuarioController extends Controller {
 			$usuarios = UsuarioModel::orderBY('id')->paginate(20);
 			return view('usuarios.user_lst')->with('usuarios', $usuarios);
 		}
+	}
+
+	public function user_edi($id){
+		$user = UsuarioModel::find($id);
+		return view('usuarios.user_edi')->with('user', $user);
+	}
+
+	public function update_user(UsuarioRequestEdicao $request, $id){
+		$params = $request->all();
+		$user = UsuarioModel::find($id);
+		$user->name = $params['name'];
+		$user->email = $params['email'];
+
+		if(isset($params['admin'])) 
+			$user->admin = 1;
+		else
+			$user->admin = 0;
+
+		$user->save();
+		return redirect('/user_lst');
 	}
 }

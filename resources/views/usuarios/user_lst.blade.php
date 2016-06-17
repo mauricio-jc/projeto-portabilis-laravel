@@ -58,12 +58,12 @@
 						@endif
 						@if(Auth::user()->admin == 1)
 							<td>
-								<a href="#" class="btn btn-success">
+								<a href="/user_edi/{{$user->id}}" class="btn btn-success">
 									<span class="glyphicon glyphicon-refresh"></span>
 									<strong>Editar</strong>
 								</a>
 								<a href="#" class="btn btn-danger">
-									<span class="glyphicon glyphicon-remove"></span>
+									<span class="glyphicon glyphicon-trash"></span>
 									<strong>Excluir</strong>
 								</a>
 							</td>
