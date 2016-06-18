@@ -63,7 +63,7 @@
 						<td>{{$matricula->pago}}</td>
 						<td>
 							@if($matricula->situacao_matricula == 'Ativo')
-								<a href="/matricula_desat/{{$matricula->id}}" class="btn btn-danger" onclick="return confirm('Deseja mesmo inativar esta matrícula?');">
+								<a href="/matricula_desat/{{$matricula->id}}" class="btn btn-warning" onclick="return confirm('Deseja mesmo inativar esta matrícula?');">
 									<span class="glyphicon glyphicon-remove"></span>
 									<strong>Inativar</strong>
 								</a>
@@ -77,6 +77,10 @@
 								<span class="glyphicon glyphicon-search"></span>
   								<strong>Visualizar</strong>
 							</button>
+							<a href="/matricula_del/{{$matricula->id}}" class="btn btn-danger" onclick="return confirm('Deseja mesmo excluir esta matrícula?');">
+								<span class="glyphicon glyphicon-trash"></span>
+  								<strong>Excluir</strong>
+							</a>
 						</td>
 					</tr>
 					<div class="modal fade" id="{{$matricula->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

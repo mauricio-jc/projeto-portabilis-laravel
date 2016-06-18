@@ -96,4 +96,11 @@ class MatriculaController extends Controller {
 		$matricula->save();
 		return redirect('/matricula_lst')->withInput();	
 	}
+
+	public function matricula_del($id){
+		$matricula =  MatriculaModel::find($id);
+		$matricula->delete();
+
+		return redirect('/matricula_lst');
+	}
 }

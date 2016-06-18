@@ -53,6 +53,8 @@ Route::get('/matricula_desat/{id}', 'MatriculaController@matricula_desat');
 
 Route::get('/matricula_ati/{id}', 'MatriculaController@matricula_ati');
 
+Route::get('/matricula_del/{id}', 'MatriculaController@matricula_del');
+
 Route::get('/user_cad', 'UsuarioController@user_cad');
 
 Route::get('/user_edi/{id}', 'UsuarioController@user_edi');
