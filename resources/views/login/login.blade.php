@@ -20,13 +20,15 @@
             <fieldset class="col-md-5 col-md-offset-3">
                 <br><br>
                 @if(old('email'))
-                     <div class="alert alert-danger">
+                     <div class="alert alert-danger alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         Credenciais não válidas!
                     </div>
                 @endif
             
                 @if(!empty($msg_logout))
-                    <div class="alert alert-info">
+                    <div class="alert alert-info alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         {{$msg_logout}}
                     </div>
                 @endif
