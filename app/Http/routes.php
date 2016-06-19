@@ -39,6 +39,10 @@ Route::post('/curso_cad/save', 'CursoController@save');
 
 Route::get('/curso_lst', 'CursoController@curso_lst');
 
+Route::get('/curso_edi/{id}', 'CursoController@curso_edi');
+
+Route::post('/curso_edi/{id}/update_curso', 'CursoController@update_curso');
+
 Route::get('/matricula_cad', 'MatriculaController@matricula_cad');
 
 Route::get('buscaraluno', 'AlunoController@buscaraluno');

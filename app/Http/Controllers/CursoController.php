@@ -25,6 +25,23 @@ class CursoController extends Controller {
 
 	}
 
+	public function curso_edi($id){
+		$curso = CursoModel::find($id);
+		return view('cursos.curso_edi')->with('curso', $curso);
+	}
+
+	public function update_curso(CursoRequest $request, $id){
+		$params = $request->all();
+		$params['valor_inscricao'] = preg_replace("/\./", "", $params['valor_inscricao']);
+		$params['valor_inscricao'] = preg_replace("/[\,]/", ".", $params['valor_inscricao']);
+		$curso = CursoModel::find($id);
+		$curso->nome = $params['nome'];
+		$curso->valor_inscricao = $params['valor_inscricao'];
+		$curso->periodo = $params['periodo'];
+		$curso->save();
+		return redirect('/curso_lst');
+	}
+
 	public function curso_lst(){
 		if(isset($_GET['buscar'])){
 			$params_curso = Request::all();

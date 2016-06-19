@@ -50,7 +50,7 @@
 							<td>Noturno</td>
 						@endif
 						<td>
-							<a href="#" class="btn btn-success">
+							<a href="/curso_edi/{{$curso->id}}" class="btn btn-success">
 								<span class="glyphicon glyphicon-refresh"></span>
 								<strong>Editar</strong>
 							</a>
