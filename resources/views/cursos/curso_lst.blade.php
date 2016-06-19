@@ -17,6 +17,7 @@
 				<option value="1">Matutino</option>
 				<option value="2">Vespertino</option>
 				<option value="3">Noturno</option>
+				<option value="4">Integral</option>
 			</select>
 		</div>
 		<div class="form-group col-md-12">
@@ -46,8 +47,10 @@
 							<td>Matutino</td>
 						@elseif($curso->periodo == 2) 
 							<td>Vespertino</td>
-						@else($curso->periodo == 3) 
+						@elseif($curso->periodo == 3) 
 							<td>Noturno</td>
+						@else($curso->periodo == 4) 
+							<td>Integral</td>
 						@endif
 						<td>
 							<a href="/curso_edi/{{$curso->id}}" class="btn btn-success">

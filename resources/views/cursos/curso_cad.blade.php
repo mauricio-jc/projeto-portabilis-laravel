@@ -41,6 +41,7 @@
 			 	<option value="1">Matutino</option>
 			 	<option value="2">Vespertino</option>
 			 	<option value="3">Noturno</option>
+			 	<option value="4">Integral</option>
 			 </select>
 		</div>
 		<div class="form-group">

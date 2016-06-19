@@ -48,6 +48,7 @@ class MatriculaModel extends Model {
        									(CASE WHEN cursos.periodo = 1 THEN 'Matutino'
              								  WHEN cursos.periodo = 2 THEN 'Vespertino'
              								  WHEN cursos.periodo = 3 THEN 'Noturno'
+             								  WHEN cursos.periodo = 4 THEN 'Integral'
         								END) AS periodo,
        									alunos.telefone,
        									alunos.data_nascimento

@@ -38,16 +38,25 @@
 					<option value="{{$curso->periodo}}" selected>Matutino</option> 
 					<option value="2">Vespertino</option>
 					<option value="3">Noturno</option>
+					<option value="4">Integral</option>
 				@endif
 				@if($curso->periodo == 2)
 					<option value="1">Matutino</option>
 					<option value="{{$curso->periodo}}" selected>Vespertino</option>
 					<option value="3">Noturno</option>
+					<option value="4">Integral</option>
 				@endif
 				@if($curso->periodo == 3)
 					<option value="1">Matutino</option>
 					<option value="2">Vespertino</option>
 					<option value="{{$curso->periodo}}" selected>Noturno</option>
+					<option value="4">Integral</option>
+				@endif
+				@if($curso->periodo == 4)
+					<option value="1">Matutino</option>
+					<option value="2">Vespertino</option>
+					<option value="3">Noturno</option>
+					<option value="{{$curso->periodo}}" selected>Integral</option>
 				@endif
 			</select>
 		</div>
