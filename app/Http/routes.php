@@ -43,6 +43,8 @@ Route::get('/curso_edi/{id}', 'CursoController@curso_edi');
 
 Route::post('/curso_edi/{id}/update_curso', 'CursoController@update_curso');
 
+Route::get('/curso_del/{id}', 'CursoController@curso_del');
+
 Route::get('/matricula_cad', 'MatriculaController@matricula_cad');
 
 Route::get('buscaraluno', 'AlunoController@buscaraluno');

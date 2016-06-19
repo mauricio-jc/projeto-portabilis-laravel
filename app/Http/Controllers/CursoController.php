@@ -3,6 +3,7 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\CursoModel;
+use App\MatriculaModel;
 use Request;
 use App\Http\Requests\CursoRequest;
 
@@ -55,6 +56,21 @@ class CursoController extends Controller {
 		else{
 			$cursos = CursoModel::orderBy('nome')->paginate(20);
 			return view('cursos.curso_lst')->with('cursos', $cursos);
+		}
+	}
+
+	public function curso_del($id){
+		$matriculaCurso = new MatriculaModel();
+		$verificaVinculoMatricula = $matriculaCurso->verifica_vinculo_curso_matricula($id);
+		
+		if(count($verificaVinculoMatricula) > 0){
+			echo "<script language='javascript' type='text/javascript'>alert('Este curso não pode ser excluído pois possui vínculo com alguma matricula.');</script>";
+			echo "<script language='javascript' type='text/javascript'>window.location.href='/curso_lst'</script>";
+		}
+		else{
+			$curso = CursoModel::find($id);
+			$curso->delete();
+			return redirect('/curso_lst');
 		}
 	}
 
