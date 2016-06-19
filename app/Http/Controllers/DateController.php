@@ -12,4 +12,10 @@ class DateController extends Controller {
 		$newDate = $date[2] . "-" . $date[1] . "-" . $date[0];
 		return $newDate;
 	}
+
+	public function convert_date_screen($data){
+		$date = explode('-', $data);
+		$newDate = $date[2] . "/" . $date[1] . "/" . $date[0];
+		return $newDate;	
+	}
 }

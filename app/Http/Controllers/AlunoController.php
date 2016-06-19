@@ -24,6 +24,13 @@ class AlunoController extends Controller {
 		return redirect('/aluno_cad')->withInput();
 	}
 
+	public function aluno_edi($id){
+		$data = new DateController();
+		$aluno = AlunoModel::find($id);
+		$aluno->data_nascimento = $data->convert_date_screen($aluno->data_nascimento);
+		return view('alunos.aluno_edi')->with('aluno', $aluno);
+	}
+
 	public function aluno_lst(){
 		if(isset($_GET['buscar'])){
 			$params_aluno = Request::all();

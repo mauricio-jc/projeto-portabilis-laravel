@@ -61,7 +61,7 @@
 						<td><?php echo date_format(new DateTime($aluno->data_nascimento), 'd/m/Y'); ?></td>
 						<td><?php echo $aluno->telefone; ?></td>
 						<th>
-							<a href="#" class="btn btn-success">
+							<a href="/aluno_edi/{{$aluno->id}}" class="btn btn-success">
 								<span class="glyphicon glyphicon-refresh"></span>
 								<strong>Editar</strong>
 							</a>
