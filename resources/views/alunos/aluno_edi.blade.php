@@ -5,7 +5,18 @@
 	<h2>Editar aluno: {{$aluno->id}}</h2>
 	<hr>
 
-	<form action="" method="post">
+	@if(count($errors) > 0)
+		<div class="alert alert-danger alert-dismissible" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<ul>
+				@foreach($errors->all() as $error)
+					<li>{{$error}}</li>
+				@endforeach
+			</ul>
+		</div>
+	@endif
+
+	<form action="/aluno_edi/{{$aluno->id}}/update_aluno" method="post">
 		<input type="hidden" name="_token" value="{{csrf_token()}}">
 		<div class="form-group col-md-12">
 			<label>Nome do aluno: *</label>
@@ -17,7 +28,7 @@
 		</div>
 		<div class="form-group col-md-12">
 			<label>RG: *</label>
-			<input type="text" class="form-control input-text" value="{{$aluno->rg}}" name="rg">
+			<input type="text" class="form-control input-text" value="{{$aluno->rg}}" name="rg" maxlength="10">
 		</div>
 		<div class="form-group col-md-6">
 			<label>Data de nascimento: *</label>

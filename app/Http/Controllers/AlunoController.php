@@ -31,6 +31,19 @@ class AlunoController extends Controller {
 		return view('alunos.aluno_edi')->with('aluno', $aluno);
 	}
 
+	public function update_aluno(AlunoRequest $request, $id){
+		$params = $request->all();
+		$aluno = AlunoModel::find($id);
+		$data = new DateController();
+		$aluno->nome = $params['nome'];
+		$aluno->cpf = $params['cpf'];
+		$aluno->rg = $params['rg'];
+		$aluno->telefone = $params['telefone'];
+		$aluno->data_nascimento = $data->convert_date_db($params['data_nascimento']);
+		$aluno->save();
+		return redirect('/aluno_lst');
+	}
+
 	public function aluno_lst(){
 		if(isset($_GET['buscar'])){
 			$params_aluno = Request::all();
