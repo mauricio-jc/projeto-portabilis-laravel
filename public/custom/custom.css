@@ -6,9 +6,9 @@
     border-radius: 2px;
 }
 
-/*.sigla-uf{
-    text-transform: uppercase;
-}*/
+.fundo-login{
+    background-color: #f9f9f9;
+}
 
 hr{
 	height: 1px;

@@ -15,7 +15,7 @@
             <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
     </head>
-    <body>
+    <body class="fundo-login">
         <div class="container">
             <fieldset class="col-md-4 col-md-offset-4">
                 <br><br>
