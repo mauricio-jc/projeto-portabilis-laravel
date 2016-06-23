@@ -55,7 +55,7 @@
     	<div class="form-group col-md-12">
     		<button type="submit" class="btn btn-success">
 				<span class="glyphicon glyphicon-refresh"></span>
-    			Alterar
+    			<strong>Alterar</strong>
     		</button>
     	</div>
 	</form>
