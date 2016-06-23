@@ -17,18 +17,22 @@
     </head>
     <body>
         <div class="container">
-            <fieldset class="col-md-5 col-md-offset-3">
+            <fieldset class="col-md-4 col-md-offset-4">
                 <br><br>
-                <h2>Recuperar senha</h2>
-
-                <form action="/send_link" method="post" class="form-signin">
-                    <input type="hidden" name="_token" value="{{csrf_token()}}">
-                    <div class="form-group">
-                        <label>E-mail</label>
-                        <input type="email" name="email" class="form-control input-login" required autofocus>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h2>Recuperar senha</h2>
+                        <hr>
+                        <form action="/send_link" method="post" class="form-signin">
+                            <input type="hidden" name="_token" value="{{csrf_token()}}">
+                            <div class="form-group">
+                                <label>E-mail</label>
+                                <input type="email" name="email" class="form-control" required autofocus>
+                            </div>
+                            <button class="btn btn-lg btn-primary btn-block" type="submit"><strong>Enviar link por email</strong></button>
+                        </form>
                     </div>
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">Enviar link por email</button>
-                </form>
+                </div>
             </fieldset>
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

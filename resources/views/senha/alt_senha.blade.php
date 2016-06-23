@@ -17,7 +17,7 @@
     </head>
     <body>
         <div class="container">
-            <fieldset class="col-md-5 col-md-offset-3">
+            <fieldset class="col-md-4 col-md-offset-4">
                 <br><br>
 
                 @if(!empty($msg_error))
@@ -33,29 +33,34 @@
                         {{$msg_success}}
                     </div>
                 @endif
+                
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h2>Recuperar senha</h2>
+                        <hr>
 
-                <h2>Recuperar senha</h2>
-
-                <form action="/update_senha" method="post" class="form-signin">
-                    <input type="hidden" name="_token" value="{{csrf_token()}}">
-                    <div class="form-group">
-                        <label>Código de verificação</label>
-                        <input type="text" name="codigo" class="form-control input-login" required autofocus>
+                        <form action="/update_senha" method="post" class="form-signin">
+                            <input type="hidden" name="_token" value="{{csrf_token()}}">
+                            <div class="form-group">
+                                <label>Código de verificação</label>
+                                <input type="text" name="codigo" class="form-control" required autofocus>
+                            </div>
+                            <div class="form-group">
+                                <label>E-mail</label>
+                                <input type="email" name="email" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Senha</label>
+                                <input type="password" name="password" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Confirmar senha</label>
+                                <input type="password" name="remember_token" class="form-control" required>
+                            </div>
+                            <button class="btn btn-lg btn-primary btn-block" type="submit"><strong>Alterar</strong></button>
+                        </form>
                     </div>
-                    <div class="form-group">
-                        <label>E-mail</label>
-                        <input type="email" name="email" class="form-control input-login" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Senha</label>
-                        <input type="password" name="password" class="form-control input-login" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Confirmar senha</label>
-                        <input type="password" name="remember_token" class="form-control input-login" required>
-                    </div>
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">Alterar</button>
-                </form>
+                </div>
             </fieldset>
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
