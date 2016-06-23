@@ -29,6 +29,9 @@
                                 <label>E-mail</label>
                                 <input type="email" name="email" class="form-control" required autofocus>
                             </div>
+                            <div class="form-group">
+                                <a href="/">Voltar</a>
+                            </div>
                             <button class="btn btn-lg btn-primary btn-block" type="submit"><strong>Enviar link por email</strong></button>
                         </form>
                     </div>
