@@ -85,7 +85,11 @@ class CursoController extends Controller {
 
 		$result = [];
         foreach ($cursos as $c) {
-            $result[] = array("value" => $c->id . " - " . $c->nome);
+        	if($c->periodo == 1) $c->periodo = "Matutino";
+        	if($c->periodo == 2) $c->periodo = "Vespertino";
+        	if($c->periodo == 3) $c->periodo = "Noturno";
+        	if($c->periodo == 4) $c->periodo = "Integral";
+            $result[] = array("value" => $c->id . " - " . $c->nome . " - " . $c->periodo);
         }
 		return $result;
 	}

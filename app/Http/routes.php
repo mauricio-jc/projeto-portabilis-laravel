@@ -37,6 +37,8 @@ Route::get('/aluno_edi/{id}', 'AlunoController@aluno_edi');
 
 Route::post('/aluno_edi/{id}/update_aluno', 'AlunoController@update_aluno');
 
+Route::get('/aluno_del/{id}', 'AlunoController@aluno_del');
+
 Route::get('/curso_cad', 'CursoController@curso_cad');
 
 Route::post('/curso_cad/save', 'CursoController@save');

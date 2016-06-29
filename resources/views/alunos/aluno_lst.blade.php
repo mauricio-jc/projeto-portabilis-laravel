@@ -65,7 +65,7 @@
 								<span class="glyphicon glyphicon-refresh"></span>
 								<strong>Editar</strong>
 							</a>
-							<a href="#" class="btn btn-danger">
+							<a href="/aluno_del/{{$aluno->id}}" class="btn btn-danger" onclick="return confirm('Deseja mesmo excluir este aluno?');">
 								<span class="glyphicon glyphicon-remove"></span>
 								<strong>Remover</strong>
 							</a>
