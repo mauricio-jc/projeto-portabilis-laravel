@@ -60,7 +60,7 @@ class CursoController extends Controller {
 	}
 
 	public function curso_del($id){
-		$matriculaCurso = new MatriculaModel();
+		$matriculaCurso = new CursoModel();
 		$verificaVinculoMatricula = $matriculaCurso->verifica_vinculo_curso_matricula($id);
 		
 		if(count($verificaVinculoMatricula) > 0){

@@ -27,13 +27,6 @@ class MatriculaModel extends Model {
 		return $matricula;
 	}
 
-	public function verifica_vinculo_curso_matricula($curso_id){
-		$curso = DB::select("SELECT curso_id
-    						   FROM matricula
- 							  WHERE curso_id = $curso_id");
-		return $curso;
-	}
-
 	public function listagem_matricula_detalhes($ano, $aluno_id, $curso_id, $ativo, $pago){
 		$matricula = DB::select("SELECT matricula.id AS id,
        									alunos.nome AS nome_aluno,
