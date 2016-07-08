@@ -39,6 +39,8 @@ Route::post('/aluno_edi/{id}/update_aluno', 'AlunoController@update_aluno');
 
 Route::get('/aluno_del/{id}', 'AlunoController@aluno_del');
 
+Route::get('buscaraluno', 'AlunoController@buscaraluno');
+
 Route::get('/curso_cad', 'CursoController@curso_cad');
 
 Route::post('/curso_cad/save', 'CursoController@save');
@@ -51,11 +53,9 @@ Route::post('/curso_edi/{id}/update_curso', 'CursoController@update_curso');
 
 Route::get('/curso_del/{id}', 'CursoController@curso_del');
 
-Route::get('/matricula_cad', 'MatriculaController@matricula_cad');
-
-Route::get('buscaraluno', 'AlunoController@buscaraluno');
-
 Route::get('buscarcurso', 'CursoController@buscarcurso');
+
+Route::get('/matricula_cad', 'MatriculaController@matricula_cad');
 
 Route::post('/matricula_cad/save', 'MatriculaController@save');
 
@@ -66,6 +66,8 @@ Route::get('/matricula_desat/{id}', 'MatriculaController@matricula_desat');
 Route::get('/matricula_ati/{id}', 'MatriculaController@matricula_ati');
 
 Route::get('/matricula_del/{id}', 'MatriculaController@matricula_del');
+
+Route::get('/matricula_lst_pag', 'MatriculaController@matricula_lst_pag');
 
 Route::get('/user_cad', 'UsuarioController@user_cad');
 

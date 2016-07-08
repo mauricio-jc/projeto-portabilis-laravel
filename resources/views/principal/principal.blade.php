@@ -120,7 +120,7 @@
                         <div class="collapse" id="endereco">
                             <div class="well">
                                 <ul>
-                                    <li><a href="#">Matriculas</a></li>
+                                    <li><a href="/matricula_lst_pag">Matriculas</a></li>
                                 </ul>
                             </div>
                         </div>                        
