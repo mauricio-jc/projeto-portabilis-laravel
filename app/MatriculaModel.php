@@ -28,32 +28,26 @@ class MatriculaModel extends Model {
 	}
 
 	public function listagem_matricula_detalhes($ano, $aluno_id, $curso_id, $ativo, $pago){
-		$matricula = DB::select("SELECT matricula.id AS id,
-       									alunos.nome AS nome_aluno,
-       									cursos.nome AS curso_nome,
-       									matricula.ano,
-       									(case WHEN matricula.ativo = 0 THEN 'Inativo'
-	     									  WHEN matricula.ativo = 1 THEN 'Ativo'
-										END) AS situacao_matricula,
-       									(CASE WHEN matricula.pago = 0 THEN 'Não'
-             								  WHEN matricula.pago = 1 THEN 'Sim'
-        								END) AS pago,
-       									(CASE WHEN cursos.periodo = 1 THEN 'Matutino'
-             								  WHEN cursos.periodo = 2 THEN 'Vespertino'
-             								  WHEN cursos.periodo = 3 THEN 'Noturno'
-             								  WHEN cursos.periodo = 4 THEN 'Integral'
-        								END) AS periodo,
-       									alunos.telefone,
-       									alunos.data_nascimento
-								   FROM matricula
-							 INNER JOIN alunos ON (matricula.aluno_id = alunos.id)
-							 INNER JOIN cursos ON (matricula.curso_id = cursos.id)
-								  WHERE (CASE WHEN $ano = 0 THEN true ELSE matricula.ano = $ano END) AND
-      									(CASE WHEN $aluno_id = 0 THEN true ELSE alunos.id = $aluno_id END) AND
-      									(CASE WHEN $curso_id = 0 THEN true ELSE cursos.id = $curso_id END) AND
-      									(CASE WHEN $ativo = -1 THEN true ELSE matricula.ativo = $ativo END) AND
-      									(CASE WHEN $pago = 0 THEN true ELSE matricula.pago = $pago END)
-      						   ORDER BY id");
+		$matricula = DB::table("matricula")
+		 			->select("matricula.id AS id", 
+		 					 "alunos.nome AS nome_aluno", 
+		 					 "cursos.nome AS curso_nome",
+		 					 "matricula.ano",
+		 					 "matricula.ativo",
+							 "matricula.pago",
+        					 "cursos.periodo",
+        					 "alunos.telefone",
+        					 "alunos.data_nascimento")
+		 			->join("alunos", "matricula.aluno_id", "=", "alunos.id")
+		 			->join("cursos", "matricula.curso_id", "=", "cursos.id");
+		 			if($ano <> 0) $matricula->where("matricula.ano", "=", $ano);
+		 			if($aluno_id <> 0) $matricula->where("alunos.id", "=", $aluno_id);
+		 			if($curso_id <> 0) $matricula->where("cursos.id", "=", $curso_id);
+		 			if($ativo <> -1) $matricula->where("matricula.ativo", "=", $ativo);
+		 			if($pago <> 0) $matricula->where("matricula.pago", "=", $pago);
+	       									
+		 			$matricula = $matricula->orderBy('id')->paginate(20);
+
 		return $matricula;
 	}
 }

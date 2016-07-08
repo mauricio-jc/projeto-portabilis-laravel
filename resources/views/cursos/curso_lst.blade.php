@@ -68,4 +68,8 @@
 		</table>
 	</div>
 
+	<div class="col-md-6 col-md-offset-5"> 
+		<?php echo $cursos->render(); ?>
+	</div>
+
 @stop

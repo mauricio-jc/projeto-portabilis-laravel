@@ -59,10 +59,10 @@
 						<td>{{$matricula->nome_aluno}}</td>
 						<td>{{$matricula->curso_nome}}</td>
 						<td>{{$matricula->ano}}</td>
-						<td>{{$matricula->situacao_matricula}}</td>
-						<td>{{$matricula->pago}}</td>
+						<td>{{$matricula->ativo == 1 ? 'Ativo' : 'Inativo'}}</td>
+						<td>{{$matricula->pago == 1 ? 'Sim' : 'Não'}}</td>
 						<td>
-							@if($matricula->situacao_matricula == 'Ativo')
+							@if($matricula->ativo == 1)
 								<a href="/matricula_desat/{{$matricula->id}}" class="btn btn-warning" onclick="return confirm('Deseja mesmo inativar esta matrícula?');">
 									<span class="glyphicon glyphicon-remove"></span>
 									<strong>Inativar</strong>
@@ -96,8 +96,8 @@
         							<strong>Nome: </strong>{{$matricula->nome_aluno}} <br>
         							<strong>Curso: </strong>{{$matricula->curso_nome}} <br>
         							<strong>Ano: </strong>{{$matricula->ano}} <br>
-        							<strong>Situação: </strong>{{$matricula->situacao_matricula}} <br>
-        							<strong>Pago: </strong>{{$matricula->pago}} <br>
+        							<strong>Situação: </strong>{{$matricula->ativo == 1 ? 'Ativo' : 'Inativo'}} <br>
+        							<strong>Pago: </strong>{{$matricula->pago == 1 ? 'Sim' : 'Não'}} <br>
         							<strong>Período: </strong>{{$matricula->periodo}} <br>
         							<strong>Telefone: </strong>{{$matricula->telefone}} <br>
         							<strong>Data de nascimento: </strong><?php echo date_format(new DateTime($matricula->data_nascimento), 'd/m/Y'); ?>
@@ -114,6 +114,10 @@
 				@endforeach
 			</tbody>
 		</table>
+	</div>
+
+	<div class="col-md-6 col-md-offset-5"> 
+		<?php echo $matriculas->render(); ?>
 	</div>
 @stop
 
