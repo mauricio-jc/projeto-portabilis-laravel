@@ -19,11 +19,11 @@ class MatriculaModel extends Model {
 	}
 
 	public function verifica_curso_ano_aluno($aluno_id, $curso_id, $ano){
-		$matricula = DB::select("SELECT *
-								   FROM matricula
-								  WHERE aluno_id = $aluno_id
-  									AND curso_id = $curso_id
-  									AND ano = $ano");
+		$matricula = DB::table('matricula')
+						->select('*')
+						->where('aluno_id', '=', $aluno_id)
+						->where('curso_id', '=', $curso_id)
+						->where('ano', '=', $ano)->get();
 		return $matricula;
 	}
 
