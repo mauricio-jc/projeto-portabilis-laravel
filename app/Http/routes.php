@@ -69,6 +69,8 @@ Route::get('/matricula_del/{id}', 'MatriculaController@matricula_del');
 
 Route::get('/matricula_lst_pag', 'MatriculaController@matricula_lst_pag');
 
+Route::get('/matricula_pag/{id}', 'MatriculaController@matricula_pag');
+
 Route::get('/user_cad', 'UsuarioController@user_cad');
 
 Route::get('/user_edi/{id}', 'UsuarioController@user_edi');

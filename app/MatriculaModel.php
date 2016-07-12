@@ -50,4 +50,19 @@ class MatriculaModel extends Model {
 
 		return $matricula;
 	}
+
+	public function matriculas_nao_pagas(){
+		$matriculasNaoPagas =  DB::table("matricula")
+								->select("matricula.id",
+										 "alunos.nome AS aluno",
+										 "cursos.nome AS curso",
+										 "cursos.valor_inscricao",
+										 "matricula.ativo")
+								->join("alunos", "matricula.aluno_id", "=", "alunos.id")
+								->join("cursos", "matricula.curso_id", "=", "cursos.id")
+								->where("matricula.ativo", "=", 1)
+								->where("matricula.pago", "=", 0)
+								->orderBy("matricula.id")->paginate(20);
+		return $matriculasNaoPagas;
+	}
 }

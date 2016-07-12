@@ -105,8 +105,12 @@ class MatriculaController extends Controller {
 	}
 
 	public function matricula_lst_pag(){
-		$matriculasNaoPagas = MatriculaModel::where('pago', '=', 1)->where('ativo', '=', 1);
-		$matriculasNaoPagas->paginate(2);
+		$matriculas = new MatriculaModel();
+		$matriculasNaoPagas = $matriculas->matriculas_nao_pagas();
 		return view('matricula.matricula_lst_pag')->with('matriculasNaoPagas', $matriculasNaoPagas);
+	}
+
+	public function matricula_pag($id){
+		return view('matricula.matricula_pag');
 	}
 }
