@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class ProjetoController extends Controller {
 
 	public function main(){
-		return view('principal.principal');
+		return view('principal.home');
 	}
 
 }
