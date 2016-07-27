@@ -51,7 +51,7 @@ class MatriculaModel extends Model {
 		return $matricula;
 	}
 
-	public function matriculas_nao_pagas(){
+	public function matriculas_nao_pagas($id){
 		$matriculasNaoPagas =  DB::table("matricula")
 								->select("matricula.id",
 										 "alunos.nome AS aluno",

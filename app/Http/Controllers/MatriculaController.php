@@ -106,11 +106,15 @@ class MatriculaController extends Controller {
 
 	public function matricula_lst_pag(){
 		$matriculas = new MatriculaModel();
-		$matriculasNaoPagas = $matriculas->matriculas_nao_pagas();
+		$matriculasNaoPagas = $matriculas->matriculas_nao_pagas(null);
 		return view('matricula.matricula_lst_pag')->with('matriculasNaoPagas', $matriculasNaoPagas);
 	}
 
 	public function matricula_pag($id){
-		return view('matricula.matricula_pag');
+		$matricula = MatriculaModel::find($id);
+		$id = $matricula->curso_id;
+		$valorMatricula = CursoModel::find($id);
+		
+		return view('matricula.matricula_pag')->with('valorMatricula', $valorMatricula);
 	}
 }
