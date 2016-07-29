@@ -34,6 +34,13 @@
 		</div>
 	@endif
 
+	@if(session()->has('message_error'))
+		<div class="alert alert-danger alert-dismissible" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			Aluno já cadastratdo neste curso, para este período e ano.
+		</div>
+	@endif
+
 	<form action="/matricula_cad/save" method="post">
 		<input type="hidden" name="_token" value="{{csrf_token()}}">
 		<div class="form-group col-md-12">

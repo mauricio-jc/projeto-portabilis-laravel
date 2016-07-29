@@ -36,8 +36,7 @@ class MatriculaController extends Controller {
 				 						 $params['ano']);
 			return redirect('/matricula_cad')->withInput();
 		}else{
-			echo "<script language='javascript' type='text/javascript'>alert('Aluno já cadastratdo neste curso, para este período e ano.');</script>";
-			echo "<script language='javascript' type='text/javascript'>window.location.href='/matricula_cad'</script>";
+			return redirect()->back()->with('message_error', [1]);
 		}
 	}
 
@@ -128,7 +127,7 @@ class MatriculaController extends Controller {
 		$valorCurso = CursoModel::find($matricula->curso_id);
 
 		if($valorInscricaoInformado['valor_inscricao'] < $valorCurso->valor_inscricao){
-			return redirect()->back()->with('message_error', [1]);;
+			return redirect()->back()->with('message_error', [1]);
 		}
 		else{
 			$matricula->pago = 1;
