@@ -4,7 +4,12 @@
 
 	<h2>Pagamento de matrículas</h2>
 	<hr>
-	
+		
+	<ol class="breadcrumb">
+  		<li class="active">Pagamento</li>
+  		<li class="active">Pagamento de matrículas</li>
+	</ol>
+
 	@if(count($matriculasNaoPagas) == 0)
 		<div class="alert alert-info">
 			<strong>

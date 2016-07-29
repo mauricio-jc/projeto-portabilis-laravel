@@ -9,6 +9,12 @@
 	<h2>Listagem de matrículas</h2>
 	<hr>
 
+	<ol class="breadcrumb">
+  		<li class="active">Início</li>
+  		<li class="active">Listagem</li>
+  		<li class="active">Listagem de matrículas</li>
+	</ol>
+
 	<form action="/matricula_lst" method="get">
 		<div class="form-group col-md-2">
 			<label>Ano da matrícula:</label>

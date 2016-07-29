@@ -7,6 +7,7 @@
 
 	<ol class="breadcrumb">
   		<li class="active">Início</li>
+  		<li class="active">Listagem</li>
   		<li class="active">Listagem de alunos</li>
 	</ol>
 

@@ -5,6 +5,13 @@
 	<h2>Listagem de cursos</h2>
 	<hr>
 
+
+	<ol class="breadcrumb">
+  		<li class="active">Início</li>
+  		<li class="active">Listagem</li>
+  		<li class="active">Listagem de cursos</li>
+	</ol>
+
 	<form action="/curso_lst" method="get">
 		<div class="form-group col-md-6">
 			<label>Nome do curso:</label>

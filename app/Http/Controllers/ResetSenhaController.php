@@ -53,8 +53,7 @@ class ResetSenhaController extends Controller {
 		$msg_error = '';
 		$msg_success = '';
 
-		$verificar_cod = VerificacaoCodSenhaModel::where('_token', '=', $codigo)
-												 ->where('email', '=', $email)->get();
+		$verificar_cod = VerificacaoCodSenhaModel::where('_token', '=', $codigo)->where('email', '=', $email)->get();
 		$arrCodVerificar = count($verificar_cod);
 
 		if($arrCodVerificar == 0){
@@ -75,7 +74,7 @@ class ResetSenhaController extends Controller {
 				$user->save();
 			}
 
-			DB::delete('delete from verificacao_cod_senha');
+			DB::delete('DELETE FROM verificacao_cod_senha');
 
 			$msg_success = 'Senha alterada com sucesso.';
 
