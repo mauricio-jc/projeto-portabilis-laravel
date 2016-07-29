@@ -6,6 +6,7 @@ use App\AlunoModel;
 use App\CursoModel;
 use Request;
 use App\Http\Requests\MatriculaRequest;
+use App\Http\Requests\PagamentoMatriculaRequest;
 use App\MatriculaModel;
 use App\Http\Controllers\DateController;
 
@@ -106,15 +107,34 @@ class MatriculaController extends Controller {
 
 	public function matricula_lst_pag(){
 		$matriculas = new MatriculaModel();
-		$matriculasNaoPagas = $matriculas->matriculas_nao_pagas(null);
+		$matriculasNaoPagas = $matriculas->matriculas_nao_pagas();
 		return view('matricula.matricula_lst_pag')->with('matriculasNaoPagas', $matriculasNaoPagas);
 	}
 
 	public function matricula_pag($id){
 		$matricula = MatriculaModel::find($id);
 		$id = $matricula->curso_id;
-		$valorMatricula = CursoModel::find($id);
+		$curso = CursoModel::find($id);
 		
-		return view('matricula.matricula_pag')->with('valorMatricula', $valorMatricula);
+		return view('matricula.matricula_pag')->with(array('curso' => $curso, 'matricula' => $matricula));
+	}
+
+	public function pagamento_save(PagamentoMatriculaRequest $request, $id){
+		$valorInscricaoInformado = $request->all();
+		$valorInscricaoInformado['valor_inscricao'] = preg_replace("/\./", "", $valorInscricaoInformado['valor_inscricao']);
+		$valorInscricaoInformado['valor_inscricao'] = preg_replace("/[\,]/", ".", $valorInscricaoInformado['valor_inscricao']);
+
+		$matricula = MatriculaModel::find($id);
+		$valorCurso = CursoModel::find($matricula->curso_id);
+
+		if($valorInscricaoInformado['valor_inscricao'] < $valorCurso->valor_inscricao){
+			return redirect()->back()->with('message_error', [1]);;
+		}
+		else{
+			$matricula->pago = 1;
+			$matricula->save();
+
+			return redirect('/matricula_lst_pag');
+		}
 	}
 }
