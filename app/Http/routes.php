@@ -69,11 +69,7 @@ Route::get('/matricula_del/{id}', 'MatriculaController@matricula_del');
 
 Route::get('/matricula_lst_pag', 'MatriculaController@matricula_lst_pag');
 
-Route::get('/matricula_pag/{id}', 'MatriculaController@matricula_pag');
-
-Route::get('/matricula_pag/{id}', 'MatriculaController@matricula_pag');
-
-Route::post('/matricula_pag/{id}/pagamento_save', 'MatriculaController@pagamento_save');
+Route::get('/matricula_pag/{id}/pagamento_save', 'MatriculaController@pagamento_save');
 
 Route::get('/user_cad', 'UsuarioController@user_cad');
 
