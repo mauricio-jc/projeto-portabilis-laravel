@@ -28,17 +28,15 @@ class ResetSenhaController extends Controller {
 		$userEmail = count($users);
 
 		if($userEmail > 0){
-				Mail::send('emails.password_reset', $data, function($message) use ($nome, $email, $assunto){
+			$insertToken = new VerificacaoCodSenhaModel($data);
+			$insertToken->save();
+
+				if(Mail::send('emails.password_reset', $data, function($message) use ($nome, $email, $assunto){
 				$message->from('laravel@email.com', $nome);
 				$message->subject($assunto);
 				$message->to($email);
-			});			
-
-			$insertToken = new VerificacaoCodSenhaModel($data);
-			$insertToken->save();
+			})){ return redirect()->back()->with('message_success', [1]); }	
 		}
-
-		return redirect('/reset_senha')->withInput();
 	}
 
 	public function alt_senha(){
