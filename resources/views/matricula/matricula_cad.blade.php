@@ -74,6 +74,10 @@
 				<span class="glyphicon glyphicon-plus"></span>
 				<strong>Cadastrar</strong>
 			</button>
+			<a href="/matricula_cad" class="btn btn-inverse">
+				<span class="glyphicon glyphicon-plus"></span>
+				<strong>Novo cadastro</strong>
+			</a>
 		</div>
 	</form>
 

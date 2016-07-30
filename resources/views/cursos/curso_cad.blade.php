@@ -57,6 +57,10 @@
 			<span class="glyphicon glyphicon-floppy-disk"></span>
 			<strong>Cadastrar</strong>
 		</button>
+		<a href="/curso_cad" class="btn btn-inverse">
+			<span class="glyphicon glyphicon-plus"></span>
+			<strong>Novo cadastro</strong>
+		</a>
 	</form>
 
 @stop()

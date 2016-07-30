@@ -41,7 +41,7 @@
 		</div>
 		<div class="form-group col-md-12">
 			<label>RG: *</label>
-			<input type="text" class="form-control input-text" value="{{old('rg')}}" name="rg">
+			<input type="text" class="form-control input-text" value="{{old('rg')}}" name="rg" maxlength="10">
 		</div>
 		<div class="form-group col-md-6">
 			<label>Data de nascimento: *</label>
@@ -62,10 +62,14 @@
 			</div>
 		</div>
 		<div class="form-group col-md-12">
-			<button type="submit" class="btn btn-success" nome="salvar">
+			<button type="submit" class="btn btn-success" name="salvar">
 				<span class="glyphicon glyphicon-floppy-disk"></span>
 				<strong>Salvar</strong>
 			</button>
+			<a href="/aluno_cad" class="btn btn-inverse">
+				<span class="glyphicon glyphicon-plus"></span>
+				<strong>Novo cadastro</strong>
+			</a>
 		</div>
 	</form>
 
