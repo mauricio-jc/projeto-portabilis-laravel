@@ -66,8 +66,7 @@ class AlunoController extends Controller {
 		$matriculaAluno = new AlunoModel();
 		$verficaVinculoAlunoMatricula = $matriculaAluno->verifica_vinculo_aluno_matricula($id);
 		if(count($verficaVinculoAlunoMatricula) > 0){
-			echo "<script language='javascript' type='text/javascript'>alert('Este aluno não pode ser excluído pois possui vínculo com alguma matricula.');</script>";
-			echo "<script language='javascript' type='text/javascript'>window.location.href='/aluno_lst'</script>";
+			return redirect()->back()->with('message_error', [1]);
 		}
 		else{
 			$aluno = AlunoModel::find($id);
