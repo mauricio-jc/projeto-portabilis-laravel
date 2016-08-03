@@ -80,4 +80,7 @@
 			</tbody>
 		</table>
 	@endif
+	<div class="col-md-6 col-md-offset-5"> 
+		<?php echo $matriculasNaoPagas->render(); ?>
+	</div>
 @stop
