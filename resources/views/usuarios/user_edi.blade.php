@@ -40,8 +40,8 @@
 				<span class="glyphicon glyphicon-refresh"></span>
 				<strong>Alterar</strong>
 			</button>
-			<a href="/user_lst" class="btn btn-inverse">
-				<span class="glyphicon glyphicon-arrow-left"></span>
+			<label>ou</label>
+			<a href="/user_lst">
 				<strong>Voltar</strong>
 			</a>
 		</div>

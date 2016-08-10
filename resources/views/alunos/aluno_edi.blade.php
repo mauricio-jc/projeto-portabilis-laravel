@@ -53,8 +53,8 @@
 				<span class="glyphicon glyphicon-refresh"></span>
 				<strong>Editar</strong>
 			</button>
-			<a href="/aluno_lst" class="btn btn-inverse">
-				<span class="glyphicon glyphicon-arrow-left"></span>
+			<label>ou</label>
+			<a href="/aluno_lst">
 				<strong>Voltar</strong>
 			</a>
 		</div>

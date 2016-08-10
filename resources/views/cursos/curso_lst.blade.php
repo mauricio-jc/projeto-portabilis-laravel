@@ -107,7 +107,7 @@
 						@endforeach
 					</tbody>
 				</table>
-				<a href="/curso_cad" class="btn btn-inverse">
+				<a href="/curso_cad" class="btn btn-default">
 					<span class="glyphicon glyphicon-plus"></span>
 					<strong>Novo curso</strong>
 				</a>

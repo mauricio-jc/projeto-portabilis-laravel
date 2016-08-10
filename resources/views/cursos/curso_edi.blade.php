@@ -65,8 +65,8 @@
 				<span class="glyphicon glyphicon-refresh"></span>
 				<strong>Editar</strong>
 			</button>
-			<a href="/curso_lst" class="btn btn-inverse">
-				<span class="glyphicon glyphicon-arrow-left"></span>
+			<label>ou</label>
+			<a href="/curso_lst">
 				<strong>Voltar</strong>
 			</a>
 		</div>
