@@ -58,69 +58,65 @@
 							<th>Ações</th>
 						</tr>
 					</thead>
-					<tbody>
-					<?php 
-						foreach($alunos as $aluno): ?>
-							<tr>
-								<td><?php echo $aluno->id; ?></td>
-								<td><?php echo $aluno->nome; ?></td>
-								<td><?php echo $aluno->cpf; ?></td>
-								<td><?php echo $aluno->rg; ?></td>
-								<td><?php echo date_format(new DateTime($aluno->data_nascimento), 'd/m/Y'); ?></td>
-								<td><?php echo $aluno->telefone; ?></td>
-								<th>
-									<a href="/aluno_edi/{{$aluno->id}}" class="btn btn-success">
-										<span class="glyphicon glyphicon-refresh"></span>
-										<strong>Editar</strong>
-									</a>
-									<a href="" class="btn btn-danger" data-toggle="modal" data-target="#{{$aluno->id}}">
-										<span class="glyphicon glyphicon-remove"></span>
-										<strong>Remover</strong>
-									</a>
-								</th>
-							</tr>
+					<tbody> 
+					@foreach($alunos as $aluno)
+						<tr>
+							<td>{{$aluno->id}}</td>
+							<td>{{$aluno->nome}}</td>
+							<td>{{$aluno->cpf}}</td>
+							<td>{{$aluno->rg}}</td>
+							<td>{{date_format(new DateTime($aluno->data_nascimento), 'd/m/Y')}}</td>
+							<td>{{$aluno->telefone}}</td>
+							<th>
+								<a href="/aluno_edi/{{$aluno->id}}" class="btn btn-success">
+									<span class="glyphicon glyphicon-refresh"></span>
+									<strong>Editar</strong>
+								</a>
+								<a href="" class="btn btn-danger" data-toggle="modal" data-target="#{{$aluno->id}}">
+									<span class="glyphicon glyphicon-remove"></span>
+									<strong>Remover</strong>
+								</a>
+							</th>
+						</tr>
 		
-							<div class="modal fade" id="{{$aluno->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-								<div class="modal-dialog" role="document">
-						    		<div class="modal-content">
-						      			<div class="modal-header">
-											<h3 class="modal-title" id="myModalLabel">
-    	    									<strong>Excluir o(a) aluno(a) {{$aluno->nome}}</strong>
-	        								</h3>
-	      								</div>
-		      							<div class="modal-body">
-    		    							<strong>Deseja mesmo excluir o aluno?</strong>
-      									</div>
-	      								<div class="modal-footer">
-      										<a href="/aluno_del/{{$aluno->id}}" class="btn btn-success">
-      											<span class="glyphicon glyphicon-ok"></span>
-        										<strong>Sim</strong>
-        									</a>
-        									<button type="button" class="btn btn-danger" data-dismiss="modal">
-        										<span class="glyphicon glyphicon-remove"></span>
-        										<strong>Não</strong>
-		    	    						</button>
-			      						</div>
-    								</div>
-  								</div>
-							</div>
-					<?php endforeach; ?>
+						<div class="modal fade" id="{{$aluno->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+							<div class="modal-dialog" role="document">
+						    	<div class="modal-content">
+						      		<div class="modal-header">
+										<h3 class="modal-title" id="myModalLabel">
+    	    								<strong>Excluir o(a) aluno(a) {{$aluno->nome}}</strong>
+	        							</h3>
+	      							</div>
+		      						<div class="modal-body">
+    		    						<strong>Deseja mesmo excluir o aluno?</strong>
+      								</div>
+	      							<div class="modal-footer">
+      									<a href="/aluno_del/{{$aluno->id}}" class="btn btn-success">
+      										<span class="glyphicon glyphicon-ok"></span>
+        									<strong>Sim</strong>
+        								</a>
+        								<button type="button" class="btn btn-danger" data-dismiss="modal">
+        									<span class="glyphicon glyphicon-remove"></span>
+											<strong>Não</strong>
+		    	    					</button>
+			      					</div>
+    							</div>
+  							</div>
+						</div>
+					@endforeach
 					</tbody>
 				</table>
-				<tfoot>
-					<a href="/aluno_cad" class="btn btn-inverse">
-						<span class="glyphicon glyphicon-plus"></span>
-						<strong>Novo aluno</strong>
-					</a>
-				</tfoot>
+				<a href="/aluno_cad" class="btn btn-inverse">
+					<span class="glyphicon glyphicon-plus"></span>
+					<strong>Novo aluno</strong>
+				</a>
 			</div>
 		</div>
 	</div>
 
-	<div class="col-md-6 col-md-offset-5"> 
+	<center>
 		<?php echo $alunos->render(); ?>
-	</div>
-
+	</center> 
 @stop
 
 @section('links')

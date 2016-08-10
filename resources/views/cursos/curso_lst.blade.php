@@ -12,6 +12,13 @@
   		<li class="active">Listagem de cursos</li>
 	</ol>
 
+	@if(session()->has('message_error'))
+		<div class="alert alert-danger alert-dismissible" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			Este curso não pode ser excluído pois possui vínculo com alguma matricula.
+		</div>
+	@endif
+
 	<form action="/curso_lst" method="get">
 		<div class="form-group col-md-6">
 			<label>Nome do curso:</label>
@@ -36,47 +43,79 @@
 	</form>
 
 	<div class="col-md-12">
-		<table class="table table-bordered table-hover table-background">
-			<thead>
-				<tr class="active">
-					<th>Curso</th>
-					<th>Valor</th>
-					<th>Período</th>
-					<th>Ações</th>
-				</tr>
-			</thead>
-			<tbody>
-				@foreach($cursos as $curso)
-					<tr>
-						<td>{{$curso->nome}}</td>
-						<td>R$ {{number_format($curso->valor_inscricao, 2, ",", ".")}}</td>
-						@if($curso->periodo == 1) 
-							<td>Matutino</td>
-						@elseif($curso->periodo == 2) 
-							<td>Vespertino</td>
-						@elseif($curso->periodo == 3) 
-							<td>Noturno</td>
-						@else($curso->periodo == 4) 
-							<td>Integral</td>
-						@endif
-						<td>
-							<a href="/curso_edi/{{$curso->id}}" class="btn btn-success">
-								<span class="glyphicon glyphicon-refresh"></span>
-								<strong>Editar</strong>
-							</a>
-							<a href="/curso_del/{{$curso->id}}" class="btn btn-danger" onclick="return confirm('Deseja mesmo excluir este curso?');">
-								<span class="glyphicon glyphicon-remove"></span>
-								<strong>Excluir</strong>
-							</a>
-						</td>
-					</tr>
-				@endforeach
-			</tbody>
-		</table>
+		<div class="panel panel-primary">
+			<div class="panel-body">
+				<table class="table table-hover">
+					<thead>
+						<tr class="active">
+							<th>Curso</th>
+							<th>Valor</th>
+							<th>Período</th>
+							<th>Ações</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach($cursos as $curso)
+							<tr>
+								<td>{{$curso->nome}}</td>
+								<td>R$ {{number_format($curso->valor_inscricao, 2, ",", ".")}}</td>
+								@if($curso->periodo == 1) 
+									<td>Matutino</td>
+								@elseif($curso->periodo == 2) 
+									<td>Vespertino</td>
+								@elseif($curso->periodo == 3) 
+									<td>Noturno</td>
+								@else($curso->periodo == 4) 
+									<td>Integral</td>
+								@endif
+								<td>
+									<a href="/curso_edi/{{$curso->id}}" class="btn btn-success">
+										<span class="glyphicon glyphicon-refresh"></span>
+										<strong>Editar</strong>
+									</a>
+									<a href="" class="btn btn-danger" data-toggle="modal" data-target="#{{$curso->id}}">
+										<span class="glyphicon glyphicon-remove"></span>
+										<strong>Remover</strong>
+									</a>
+								</td>
+							</tr>
+
+							<div class="modal fade" id="{{$curso->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+								<div class="modal-dialog" role="document">
+							    	<div class="modal-content">
+							      		<div class="modal-header">
+											<h3 class="modal-title" id="myModalLabel">
+    	    									<strong>Excluir o(a) curso(a) {{$curso->nome}}</strong>
+	        								</h3>
+	      								</div>
+		      							<div class="modal-body">
+    		    							<strong>Deseja mesmo excluir este curso?</strong>
+      									</div>
+		      							<div class="modal-footer">
+    	  									<a href="/curso_del/{{$curso->id}}" class="btn btn-success">
+      											<span class="glyphicon glyphicon-ok"></span>
+        										<strong>Sim</strong>
+        									</a>
+        									<button type="button" class="btn btn-danger" data-dismiss="modal">
+        										<span class="glyphicon glyphicon-remove"></span>
+												<strong>Não</strong>
+		    	    						</button>
+				      					</div>
+    								</div>
+  								</div>
+							</div>
+						@endforeach
+					</tbody>
+				</table>
+				<a href="/curso_cad" class="btn btn-inverse">
+					<span class="glyphicon glyphicon-plus"></span>
+					<strong>Novo curso</strong>
+				</a>
+			</div>
+		</div>
 	</div>
 
-	<div class="col-md-6 col-md-offset-5"> 
+	<center>
 		<?php echo $cursos->render(); ?>
-	</div>
-
+	</center>
 @stop

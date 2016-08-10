@@ -64,8 +64,7 @@ class CursoController extends Controller {
 		$verificaVinculoMatricula = $matriculaCurso->verifica_vinculo_curso_matricula($id);
 		
 		if(count($verificaVinculoMatricula) > 0){
-			echo "<script language='javascript' type='text/javascript'>alert('Este curso não pode ser excluído pois possui vínculo com alguma matricula.');</script>";
-			echo "<script language='javascript' type='text/javascript'>window.location.href='/curso_lst'</script>";
+			return redirect()->back()->with('message_error', [1]);
 		}
 		else{
 			$curso = CursoModel::find($id);
