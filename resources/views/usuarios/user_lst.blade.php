@@ -42,51 +42,80 @@
 	</form>
 
 	<div class="col-md-12">
-		<table class="table table-bordered table-hover table-background">
-			<thead>
-				<tr class="active">
-					<th>Código</th>
-					<th>Nome</th>
-					<th>E-mail</th>
-					<th>Administrador</th>
-					<th>Ações</th>
-				</tr>
-			</thead>
-			<tbody>
-				@foreach($usuarios as $user)
-					<tr>
-						<td>{{$user->id}}</td>
-						<td>{{$user->name}}</td>
-						<td>{{$user->email}}</td>
-						@if($user->admin == 1)
-							<td>Sim</td>
-						@else
-							<td>Não</td>
-						@endif
-						@if(Auth::user()->admin == 1)
-							<td>
-								<a href="/user_edi/{{$user->id}}" class="btn btn-success">
-									<span class="glyphicon glyphicon-refresh"></span>
-									<strong>Editar</strong>
-								</a>
-								<a href="/user_del/{{$user->id}}" class="btn btn-danger" onclick="return confirm('Deseja mesmo excluir este usuário?');">
-									<span class="glyphicon glyphicon-trash"></span>
-									<strong>Excluir</strong>
-								</a>
-							</td>
-						@else
-							<td>
-								<span class="label label-info">Nenhuma ação permitida</span>
-							</td>
-						@endif
-					</tr>
-				@endforeach
-			</tbody>
-		</table>
+		<div class="panel panel-primary">
+			<div class="panel-body">
+				<table class="table table-hover">
+					<thead>
+						<tr class="active">
+							<th>Código</th>
+							<th>Nome</th>
+							<th>E-mail</th>
+							<th>Administrador</th>
+							<th>Ações</th>
+						</tr>
+					</thead>
+					<tbody>
+					@foreach($usuarios as $user)
+						<tr>
+							<td>{{$user->id}}</td>
+							<td>{{$user->name}}</td>
+							<td>{{$user->email}}</td>
+							@if($user->admin == 1)
+								<td>Sim</td>
+							@else
+								<td>Não</td>
+							@endif
+							@if(Auth::user()->admin == 1)
+								<td>
+									<a href="/user_edi/{{$user->id}}" class="btn btn-success">
+										<span class="glyphicon glyphicon-refresh"></span>
+										<strong>Editar</strong>
+									</a>
+									<a href="" class="btn btn-danger" data-toggle="modal" data-target="#{{$user->id}}">
+										<span class="glyphicon glyphicon-remove"></span>
+										<strong>Excluir</strong>
+									</a>
+								</td>
+							@else
+								<td>
+									<span class="label label-info">Nenhuma ação permitida</span>
+								</td>
+							@endif
+						</tr>
+
+						<div class="modal fade" id="{{$user->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+							<div class="modal-dialog" role="document">
+						    	<div class="modal-content">
+						      		<div class="modal-header">
+										<h3 class="modal-title" id="myModalLabel">
+    	    								<strong>Excluir o(a) usuário(a) {{$user->name}}</strong>
+	        							</h3>
+	      							</div>
+		      						<div class="modal-body">
+    		    						<strong>Deseja mesmo excluir o usuário?</strong>
+      								</div>
+	      							<div class="modal-footer">
+      									<a href="/user_del/{{$user->id}}" class="btn btn-success">
+      										<span class="glyphicon glyphicon-ok"></span>
+        									<strong>Sim</strong>
+        								</a>
+        								<button type="button" class="btn btn-danger" data-dismiss="modal">
+        									<span class="glyphicon glyphicon-remove"></span>
+											<strong>Não</strong>
+		    	    					</button>
+			      					</div>
+    							</div>
+  							</div>
+						</div>
+					@endforeach
+					</tbody>
+				</table>
+			</div>
+		</div>
 	</div>
 
-	<div class="col-md-12">
+	<center>
 		<?php echo $usuarios->render(); ?>
-	</div>
+	</center>
 
 @stop
