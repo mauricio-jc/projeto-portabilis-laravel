@@ -10,6 +10,7 @@ use App\VerificacaoCodSenhaModel;
 use DB;
 use Mail;
 use Hash;
+use Illuminate\Support\Facades\Session;
 
 class ResetSenhaController extends Controller {
 
@@ -31,12 +32,19 @@ class ResetSenhaController extends Controller {
 			$insertToken = new VerificacaoCodSenhaModel($data);
 			$insertToken->save();
 
-				if(Mail::send('emails.password_reset', $data, function($message) use ($nome, $email, $assunto){
+			if(Mail::send('emails.password_reset', $data, function($message) use ($nome, $email, $assunto){
 				$message->from('laravel@email.com', $nome);
 				$message->subject($assunto);
 				$message->to($email);
-			})){ return redirect()->back()->with('message_success', [1]); }	
+			})){ 
+				Session::flash('mensagem', 'Email enviado com sucesso!');
+				return redirect('/reset_senha');
+			}
 		}
+		else{
+			Session::flash('mensagem', 'Email inexistente!');
+			return redirect('/reset_senha');
+		}	
 	}
 
 	public function alt_senha(){

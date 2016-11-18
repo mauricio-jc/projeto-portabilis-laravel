@@ -206,11 +206,10 @@
 				</a>
 			</div>
 		</div>
+		<center> 
+			<?php echo $matriculas->render(); ?>
+		</center>
 	</div>
-
-	<center> 
-		<?php echo $matriculas->render(); ?>
-	</center>
 @stop
 
 @section('links')
