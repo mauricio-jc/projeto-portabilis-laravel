@@ -8,6 +8,7 @@ use Request;
 use App\UsuarioModel;
 use Hash;
 use Auth;
+use Session;
 
 class LoginController extends Controller {
 
@@ -16,16 +17,19 @@ class LoginController extends Controller {
 	}
 
 	public function logar(){
-		session_start();
 		$parametrosLogin = Request::only('email', 'password');
 
-		if(Auth::attempt($parametrosLogin)){
-			Auth::user()->name;
-			$_SESSION['admin'] = Auth::user()->admin;
-			return redirect('/home');
+		if($parametrosLogin['email'] != "" && $parametrosLogin['password'] != ""){
+			if(Auth::attempt($parametrosLogin)){
+				return redirect('/home');
+			}
+			else{	
+				Session::flash("message_error", "Email ou senha inválidos!");
+				return redirect('/')->withInput();
+			}
 		}
 		else{
-			session_destroy();	
+			Session::flash("message_error", "Preencha os campos email e senha.");
 			return redirect('/')->withInput();
 		}
 	}

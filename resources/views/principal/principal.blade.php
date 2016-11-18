@@ -37,7 +37,7 @@
                 <a class="navbar-brand" href="/home">i-Educar</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
-                    @if($_SESSION['admin'] == 1)
+                    @if(Auth::user()->admin == 1)
                         <ul class="nav navbar-nav">
                             <li>
                                 <a href="/user_cad"><span class="glyphicon glyphicon-plus"></span>Novo usuário</a>

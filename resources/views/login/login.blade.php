@@ -19,10 +19,10 @@
         <div class="container">
             <fieldset class="col-md-4 col-md-offset-4">
                 <br><br>
-                @if(old('email'))
+                @if(Session::has('message_error'))
                      <div class="alert alert-danger alert-dismissible" role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        Credenciais não válidas!
+                        {{Session::get('message_error')}}
                     </div>
                 @endif
             
@@ -40,11 +40,11 @@
                             <input type="hidden" name="_token" value="{{csrf_token()}}">
                             <div class="form-group">
                                 <label>E-mail</label>
-                                <input type="email" name="email" class="form-control" required autofocus>
+                                <input type="email" name="email" class="form-control" value="{{old('email')}}" autofocus>
                             </div>
                             <div class="form-group">
                                 <label>Senha</label>
-                                <input type="password" name="password" class="form-control" required>
+                                <input type="password" name="password" class="form-control" value="{{old('password')}}">
                             </div>
                             <div class="form-group">
                                 <a href="/reset_senha">Esqueceu sua senha?</a>
